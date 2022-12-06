@@ -15,9 +15,9 @@ public class Donation {
         dateTime = LocalDateTime.now();
     }
 
-    public Donation(float donationAmount, LocalDateTime dateTime, Patreon patreon, List<Pet> pets) {
+    public Donation(float donationAmount, Patreon patreon, List<Pet> pets) {
         this.donationAmount = donationAmount;
-        this.dateTime = dateTime;
+        this.dateTime = LocalDateTime.now();
         this.patreon = patreon;
         this.pets = pets;
     }
@@ -49,6 +49,6 @@ public class Donation {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        return String.format("%f;s%", donationAmount, dateTime.format(formatter));
+        return String.format("%f;%s", donationAmount, dateTime.format(formatter));
     }   
 }
