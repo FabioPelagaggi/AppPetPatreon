@@ -61,6 +61,8 @@ public class Dog extends Pet {
         stringBuilder.append(bathCost);
         stringBuilder.append(";");
         stringBuilder.append(toysCost);
+        stringBuilder.append(";");
+        stringBuilder.append(calcMonthlyCost());
         return stringBuilder.toString();
     }
 }
