@@ -1,6 +1,6 @@
 package br.edu.infnet.AppPetPatreon;
 
-import br.edu.infnet.AppPetPatreon.domain.Patreon;
+import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 
 public class PatreonTest {
 

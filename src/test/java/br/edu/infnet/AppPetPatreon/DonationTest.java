@@ -2,12 +2,12 @@ package br.edu.infnet.AppPetPatreon;
 
 import java.util.List;
 
-import br.edu.infnet.AppPetPatreon.domain.Bird;
-import br.edu.infnet.AppPetPatreon.domain.Dog;
-import br.edu.infnet.AppPetPatreon.domain.Donation;
-import br.edu.infnet.AppPetPatreon.domain.Horse;
-import br.edu.infnet.AppPetPatreon.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.domain.Pet;
+import br.edu.infnet.AppPetPatreon.model.domain.Bird;
+import br.edu.infnet.AppPetPatreon.model.domain.Dog;
+import br.edu.infnet.AppPetPatreon.model.domain.Donation;
+import br.edu.infnet.AppPetPatreon.model.domain.Horse;
+import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
+import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 
 public class DonationTest {
     public static void main(String[] args) {

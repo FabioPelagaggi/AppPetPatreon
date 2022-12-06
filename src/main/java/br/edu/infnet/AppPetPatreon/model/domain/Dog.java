@@ -1,4 +1,4 @@
-package br.edu.infnet.AppPetPatreon.domain;
+package br.edu.infnet.AppPetPatreon.model.domain;
 
 public class Dog extends Pet {
 

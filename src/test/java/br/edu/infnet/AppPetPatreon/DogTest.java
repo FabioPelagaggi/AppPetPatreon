@@ -1,6 +1,6 @@
 package br.edu.infnet.AppPetPatreon;
 
-import br.edu.infnet.AppPetPatreon.domain.Dog;
+import br.edu.infnet.AppPetPatreon.model.domain.Dog;
 
 public class DogTest {
     public static void main(String[] args) {
