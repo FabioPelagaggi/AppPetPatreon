@@ -55,5 +55,4 @@ public class Bird extends Pet{
         stringBuilder.append(calcMonthlyCost());
         return stringBuilder.toString();
     }
-    
 }

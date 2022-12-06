@@ -31,5 +31,4 @@ public class Patreon {
         stringBuilder.append(phone);
         return stringBuilder.toString();
     }
-    
 }

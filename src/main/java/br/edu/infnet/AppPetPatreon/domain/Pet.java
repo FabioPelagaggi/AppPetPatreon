@@ -48,5 +48,4 @@ public abstract class Pet {
         stringBuilder.append(foodCost);
         return stringBuilder.toString();
     }
-
 }
