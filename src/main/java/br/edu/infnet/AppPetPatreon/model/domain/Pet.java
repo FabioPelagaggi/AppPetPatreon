@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import br.edu.infnet.AppPetPatreon.model.validation.Valid;
+
 public abstract class Pet {
 
     private String name;
@@ -9,11 +11,16 @@ public abstract class Pet {
     private float foodCost;
 
     public Pet(String name, String animalType, int age, String gender, float foodCost) {
-        this.name = name;
-        this.animalType = animalType;
-        this.age = age;
+       
+        try {
+            this.name = Valid.name(name);
+            this.age = Valid.age(age);
+            this.foodCost = Valid.cost(foodCost);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.gender = gender;
-        this.foodCost = foodCost;
+        this.animalType = animalType;
     }
 
     public String getName() {

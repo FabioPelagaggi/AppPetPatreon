@@ -11,7 +11,6 @@ import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 
 public class DonationTest {
     public static void main(String[] args) {
-        
         Dog dog1 = new Dog("Pongo", "Dog", 7, "Male", 232.5f, "Colie", "Large", false, 23.4f, 16.7f);
         Horse horse1 = new Horse("Sansao", "horse", 15, "Male", 332.3f, "Arabian", 10.3f, 26.7f, 70);
         Bird bird3 = new Bird("Ferdinando", "Bird", 5, "Male", 3.5f, "Small", 1.4f, 5.9f);
