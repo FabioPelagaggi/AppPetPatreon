@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.model.validation;
 
+import br.edu.infnet.AppPetPatreon.constants.CONST;
+
 public class Valid {    
 
     public static String name(String input) throws Exception{
@@ -28,7 +30,7 @@ public class Valid {
     public static int age(int input) throws Exception{
         boolean isAge = false;
 
-        if (input >= 0 && input <= 100) {
+        if (input >= 0 && input <= CONST.MAX_AGE) {
             isAge = true;
         }
 
@@ -43,7 +45,7 @@ public class Valid {
     public static float cost(float input)  throws Exception{
         boolean validCost = false;
 
-        if (input >= 0 && input <= 10000){
+        if (input >= 0 && input <= CONST.MAX_COST){
             validCost = true;
         }
 
