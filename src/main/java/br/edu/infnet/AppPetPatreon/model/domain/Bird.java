@@ -6,7 +6,7 @@ public class Bird extends Pet{
     private float hayCost;
     private float toysCost;
     
-    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost, float toysCost){
+    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost, float toysCost) throws Exception{
         super(name, animalType, age, gender, foodCost);
         this.size = size;
         this.hayCost = hayCost;

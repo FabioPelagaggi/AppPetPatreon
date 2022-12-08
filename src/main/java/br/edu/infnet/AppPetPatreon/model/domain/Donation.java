@@ -44,6 +44,15 @@ public class Donation {
         this.pets = pets;
     }
 
+    public void print(){
+        System.out.println("Donation: " + this);
+        System.out.println("Donation Amount: " + this.donationAmount);
+        System.out.println("Pets Qty.: " + this.pets.size());
+        for (Pet pet : this.pets){
+            System.out.println("- " + pet.getName());
+        }
+    }
+
     @Override
     public String toString() {
 

@@ -7,7 +7,7 @@ public class Horse extends Pet{
     private float saltCost;
     private float vetCost;
 
-    public Horse(String name, String animalType, int age, String gender, float foodCost, String breed, float hayCost, float saltCost, float vetCost){
+    public Horse(String name, String animalType, int age, String gender, float foodCost, String breed, float hayCost, float saltCost, float vetCost) throws Exception{
         super(name, animalType, age, gender, foodCost);
         this.breed = breed;
         this.hayCost = hayCost;

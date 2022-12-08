@@ -10,15 +10,10 @@ public abstract class Pet {
     private String gender;
     private float foodCost;
 
-    public Pet(String name, String animalType, int age, String gender, float foodCost) {
-       
-        try {
-            this.name = Valid.name(name);
-            this.age = Valid.age(age);
-            this.foodCost = Valid.cost(foodCost);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Pet(String name, String animalType, int age, String gender, float foodCost) throws Exception {
+        this.name = Valid.name(name);
+        this.age = Valid.age(age);
+        this.foodCost = Valid.cost(foodCost);
         this.gender = gender;
         this.animalType = animalType;
     }
