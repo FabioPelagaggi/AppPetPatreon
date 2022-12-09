@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidDonation;
+
 public class Donation {
 
     private float donationAmount;
@@ -11,15 +13,27 @@ public class Donation {
     private Patreon patreon;
     private List<Pet> pets;
 
-    public Donation() {
-        dateTime = LocalDateTime.now();
-    }
-
-    public Donation(float donationAmount, Patreon patreon, List<Pet> pets) {
-        this.donationAmount = donationAmount;
+    public Donation(float donationAmount, Patreon patreon, List<Pet> pets) throws InvalidDonation {
+        
         this.dateTime = LocalDateTime.now();
-        this.patreon = patreon;
-        this.pets = pets;
+
+        if (donationAmount > 0) {
+            this.donationAmount = donationAmount;
+        } else{
+            throw new InvalidDonation("The donation amount must be greater than 0");
+        }
+        
+        if(patreon!= null) {
+            this.patreon = patreon;
+        } else {
+            throw new InvalidDonation("The patreon must not be null");
+        }
+
+        if (pets!= null) {
+            this.pets = pets;
+        } else {
+            throw new InvalidDonation("The pets must not be null");
+        }
     }
 
     public float getDonationAmount() {
