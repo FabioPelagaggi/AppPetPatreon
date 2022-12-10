@@ -1,20 +1,18 @@
 package br.edu.infnet.AppPetPatreon;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.domain.Bird;
 import br.edu.infnet.AppPetPatreon.model.domain.Dog;
 import br.edu.infnet.AppPetPatreon.model.domain.Donation;
 import br.edu.infnet.AppPetPatreon.model.domain.Horse;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.model.domain.Pet;
-import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidDonation;
 import br.edu.infnet.AppPetPatreon.model.methods.ConvertString;
 
 public class FileTest {
@@ -25,6 +23,9 @@ public class FileTest {
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            FileWriter fileWriter = new FileWriter("OUT_" + file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             String line = bufferedReader.readLine();
 
@@ -105,12 +106,15 @@ public class FileTest {
 
             try{
                 donation.print();
+                bufferedWriter.write(donation.writeFile());
             } catch (Exception e){
                 System.out.println("[ERROR] - " + e.getMessage());
             }
             
             bufferedReader.close();
             fileReader.close();
+            bufferedWriter.close();
+            fileWriter.close();
 
         } catch (Exception e) {
             e.printStackTrace();

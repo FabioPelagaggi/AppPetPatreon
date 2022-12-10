@@ -78,12 +78,37 @@ public class Donation {
         }
     }
 
+    private float calcPetsTotalMonthlyCost(){
+        float total = 0;
+        for (Pet pet : this.getPets()){
+            total += pet.calcMonthlyCost();
+        }
+        return total;
+    }
+
+    public String writeFile(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(CONST.DONATION_TAG);
+        stringBuilder.append(";");
+        stringBuilder.append(this.orderNumber);
+        stringBuilder.append(";");
+        stringBuilder.append(this.dateTime.format(formatter));
+        stringBuilder.append(";");
+        stringBuilder.append(this.calcPetsTotalMonthlyCost());
+        stringBuilder.append(";");
+        stringBuilder.append("\r\n");
+
+        return stringBuilder.toString();
+    }
+
     @Override
     public String toString() {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        String stringData = String.format("%s;%f;%f;%s;%s;%s", CONST.DONATION_TAG, orderNumber, donationAmount, dateTime.format(formatter), patreon,pets.toString());
+        String stringData = String.format("%s;%f;%f;%s;%s;%s", CONST.DONATION_TAG, this.orderNumber, this.donationAmount, this.dateTime.format(formatter), this.patreon, this.pets.toString());
 
         return stringData.toString();
     }   
