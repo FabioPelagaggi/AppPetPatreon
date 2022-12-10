@@ -37,8 +37,16 @@ public class DogTest {
         }
 
         try{
-            Dog dog5 = new Dog("Apa", "Dog", 12, "Male", 232.5f, "Malamute", "Medium", false, 23.4f, 16.7f);
+            Dog dog5 = new Dog("Apa", "Dog", 12, "Male", 232.5f, "Malamute", null, false, 23.4f, 16.7f);
             System.out.println(dog5);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[ERROR] - " + e.getMessage());
+        }
+
+        try{
+            Dog dog6 = new Dog("Apa", "Dog", 12, "Male", 232.5f, "Malamute", "Medium", false, 23.4f, 16.7f);
+            System.out.println(dog6);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("[ERROR] - " + e.getMessage());

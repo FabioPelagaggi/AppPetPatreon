@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidSize;
+
 public class Dog extends Pet {
 
     private String breed;
@@ -11,10 +13,15 @@ public class Dog extends Pet {
     public Dog(String name, String animalType, int age, String gender, float foodCost, String breed, String size, boolean castrated, float bathCost, float toysCost) throws Exception{
         super(name, animalType, age, gender, foodCost);
         this.breed = breed;
-        this.size = size;
         this.castrated = castrated;
         this.bathCost = bathCost;
         this.toysCost = toysCost;
+
+        if (size != null) {
+            this.size = size;
+        } else {
+            throw new InvalidSize("The size cannot be null");
+        }
     }
 
     public String getBreed() {

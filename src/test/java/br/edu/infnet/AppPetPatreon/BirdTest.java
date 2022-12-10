@@ -5,7 +5,7 @@ import br.edu.infnet.AppPetPatreon.model.domain.Bird;
 public class BirdTest {
     public static void main(String[] args) {
         try {
-            Bird bird1 = new Bird("Zezé", "Bird", 13, "Male", 12.5f, "Small", 2.4f, 6.7f);
+            Bird bird1 = new Bird("Zezé", "Bird", 13, "Male", 12.5f, null, 2.4f, 6.7f);
             System.out.println(bird1);
         } catch (Exception e) {
             e.printStackTrace();
