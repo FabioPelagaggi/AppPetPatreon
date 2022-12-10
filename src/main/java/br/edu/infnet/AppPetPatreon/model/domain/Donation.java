@@ -4,18 +4,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidDonation;
+import br.edu.infnet.AppPetPatreon.model.methods.ConvertString;
 
 public class Donation {
 
+    private float orderNumber;
     private float donationAmount;
     private LocalDateTime dateTime;
     private Patreon patreon;
     private List<Pet> pets;
 
-    public Donation(float donationAmount, Patreon patreon, List<Pet> pets) throws InvalidDonation {
+    public Donation(float donationAmount, Patreon patreon, List<Pet> pets) throws Exception {
         
         this.dateTime = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMddHHmmss");
+
+        this.orderNumber = ConvertString.toFloat(dateTime.format(formatter));
 
         if (donationAmount > 0) {
             this.donationAmount = donationAmount;
@@ -59,11 +66,15 @@ public class Donation {
     }
 
     public void print(){
-        System.out.println("Donation: " + this);
+        System.out.println();
+        System.out.println("Donation Data: " + this);
+        System.out.println("-----------------------");
+        System.out.println("Order Number: " + this.orderNumber);
         System.out.println("Donation Amount: " + this.donationAmount);
         System.out.println("Pets Qty.: " + this.pets.size());
         for (Pet pet : this.pets){
-            System.out.println("- " + pet.getName());
+            System.out.println("- " + pet.getAnimalType());
+            pet.print();
         }
     }
 
@@ -72,6 +83,8 @@ public class Donation {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-        return String.format("%f;%s", donationAmount, dateTime.format(formatter));
+        String stringData = String.format("%s;%f;%f;%s;%s;%s", CONST.DONATION_TAG, orderNumber, donationAmount, dateTime.format(formatter), patreon,pets.toString());
+
+        return stringData.toString();
     }   
 }

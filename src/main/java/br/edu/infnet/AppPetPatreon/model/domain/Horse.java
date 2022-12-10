@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import br.edu.infnet.AppPetPatreon.constants.CONST;
+
 public class Horse extends Pet{
     
     private String breed;
@@ -37,8 +39,19 @@ public class Horse extends Pet{
         return foodCost + hayCost + vetCost;
     }
 
+    public void print(){       
+        System.out.println("Horse Name: " + this.getName());
+        System.out.println("Breed: " + this.getBreed());
+        System.out.println("Gender: " + this.getGender());
+        System.out.println("Age: " + this.getAge());
+        System.out.println("Monthly Cost: " + this.calcMonthlyCost());
+    }
+
+    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(CONST.HORSE_TAG);
+        stringBuilder.append(";");
         stringBuilder.append(super.toString());
         stringBuilder.append(";");
         stringBuilder.append(breed);

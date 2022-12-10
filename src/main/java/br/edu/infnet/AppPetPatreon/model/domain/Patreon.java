@@ -1,5 +1,6 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 
 public class Patreon {
@@ -10,14 +11,16 @@ public class Patreon {
     private String email;
     private String phone;
 
+    public Patreon(){};
+    
     public Patreon(String name, String email, String phone) throws Exception {
         this.setName(Valid.name(name));
         this.email = Valid.email(email);
         this.phone = Valid.phone(phone);
-    }
+    };
 
     private void setFirstName(String inputFirstName) {
-        firstName = inputFirstName;
+        this.firstName = inputFirstName;
     };
 
     private String getFirstName(){
@@ -25,7 +28,7 @@ public class Patreon {
     };
 
     private void setMiddleName(String inputMiddleName) {
-        middleName = inputMiddleName;
+        this.middleName = inputMiddleName;
     };
 
     private String getMiddleName(){
@@ -33,19 +36,28 @@ public class Patreon {
     };
 
     private void setLastName(String inputLastName) {
-        lastName = inputLastName;
+        this.lastName = inputLastName;
     };
 
     private String getLastName(){
         return lastName;
     };
-    
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
     public String getEmail() {
         return email;
-    }
+    };
+    
+    public void setPhone(String phone){
+        this.phone = phone;
+    };
+
     public String getPhone() {
         return phone;
-    }
+    };
 
     public String getName(){
         StringBuilder fullName = new StringBuilder();
@@ -55,11 +67,15 @@ public class Patreon {
         String lastName = getLastName();
 
         fullName.append(firstName);
-        fullName.append(" ");
-        fullName.append(middleName);
-        fullName.append(" ");
-        fullName.append(lastName);
-
+        
+        if (middleName != ""){
+            fullName.append(" ");
+            fullName.append(middleName);
+        }
+        if (lastName != ""){
+            fullName.append(" ");
+            fullName.append(lastName);
+        }
         return fullName.toString();
     };
 
@@ -85,16 +101,18 @@ public class Patreon {
             }
         }
         return middleNameBuilder.toString();
-    }
+    };
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(CONST.PATREON_TAG);
+        stringBuilder.append(";");
         stringBuilder.append(this.getName());
         stringBuilder.append(";");
         stringBuilder.append(this.email);
         stringBuilder.append(";");
         stringBuilder.append(this.phone);
         return stringBuilder.toString();
-    }
+    };
 }

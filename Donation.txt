@@ -1,0 +1,5 @@
+DONATION;221210001408.000000;135.779999;10/12/2022 00:51:00
+PATREON;Ferdinanda Jr;ferdinandinho@gmail.com;552378787878
+DOG;Pingo;Dog;14;Female;132.5;Poodle;Small;Yes;23.4;16.7;86.299995
+HORSE;Eris;Horse;22;Female;406.4;Thoroughbred;13.4;15.7;30.0;449.8
+BIRD;Astrogimecleuda;Bird;27;Female;16.5;Large;3.4;5.7;30.720001

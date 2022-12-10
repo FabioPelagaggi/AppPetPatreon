@@ -36,6 +36,8 @@ public abstract class Pet {
 
     public abstract float calcMonthlyCost();
 
+    public abstract void print();
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -78,27 +78,4 @@ public class Valid {
         }
         return input;
     }
-
-    private static boolean isInt(String input) throws Exception{
-        boolean isInt = false;
-
-        try{
-            Integer.parseInt(input);
-            isInt = true;
-        }
-        catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
-
-        return isInt;
-    }
-
-    private static boolean isFloat(String input) throws Exception{
-        boolean isFloat = false;
-
-        Float.parseFloat(input);
-        isFloat = true;
-        
-        return isFloat;
-    }
 }

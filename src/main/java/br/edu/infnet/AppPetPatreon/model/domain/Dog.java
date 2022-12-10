@@ -1,5 +1,6 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidSize;
 
 public class Dog extends Pet {
@@ -59,8 +60,20 @@ public class Dog extends Pet {
         return foodCost + bathCost + toysCost;
     }
 
+    public void print(){       
+        System.out.println("Dog Name: " + this.getName());
+        System.out.println("Breed: " + this.getBreed());
+        System.out.println("Gender: " + this.getGender());
+        System.out.println("Age: " + this.getAge());
+        System.out.println("Size: " + this.getSize());
+        System.out.println("Monthly Cost: " + this.calcMonthlyCost());
+    }
+
+    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(CONST.DOG_TAG);
+        stringBuilder.append(";");
         stringBuilder.append(super.toString());
         stringBuilder.append(";");
         stringBuilder.append(breed);

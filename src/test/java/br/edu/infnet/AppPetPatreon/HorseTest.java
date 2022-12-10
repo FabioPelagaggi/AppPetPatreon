@@ -12,7 +12,7 @@ public class HorseTest {
             System.out.println("[ERROR] - " + e.getMessage());
         }
         try {
-            Horse horse2 = new Horse("Eris", "horse", 22, "Felame", 406.4f, "Thoroughbred", 13.4f, 15.7f, 30);
+            Horse horse2 = new Horse("Eris", "horse", 22, "Female", 406.4f, "Thoroughbred", 13.4f, 15.7f, 30);
             System.out.println(horse2);
         } catch (Exception e) {
             e.printStackTrace();

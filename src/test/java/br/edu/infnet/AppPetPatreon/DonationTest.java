@@ -58,12 +58,12 @@ public class DonationTest {
             Dog dog2 = new Dog("Pingo", "Dog", 14, "Female", 132.5f, "Poodle", "Small", true, 23.4f, 16.7f);
             Horse horse2 = new Horse("Eris", "horse", 22, "Felame", 406.4f, "Thoroughbred", 13.4f, 15.7f, 30);
             Bird bird2 = new Bird("Astrogimecleuda", "Bird", 27, "Female", 16.5f, "Large", 3.4f, 5.7f);
-            Patreon patreon02 = new Patreon("Ferdinando", "ferdinandinho@gmail.com", "552378787878");
+            Patreon patreon02 = new Patreon("Ferdinanda Jr", "ferdinandinho@gmail.com", "552378787878");
 
             List<Pet> petsList2;
             petsList2 = List.of(dog2, horse2, bird2);
 
-            Donation donation02 = new Donation(100f, patreon02, petsList2);
+            Donation donation02 = new Donation(135.78f, patreon02, petsList2);
 
             donation02.print();
         } catch (Exception e) {
