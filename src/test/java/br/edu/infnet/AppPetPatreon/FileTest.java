@@ -50,6 +50,7 @@ public class FileTest {
                             System.out.println("[ERROR] - " + e.getMessage());
                         }
                         break;
+                        
                     case "PATREON":
                         try {
                             patreon.setName(fields[1]);
@@ -61,6 +62,7 @@ public class FileTest {
                             System.out.println("[ERROR] - " + e.getMessage());
                         }
                         break;
+
                     case "DOG":
                         try {
                             boolean castrated = false;
@@ -74,8 +76,8 @@ public class FileTest {
                             e.printStackTrace();
                             System.out.println("[ERROR] - " + e.getMessage());
                         }
-                       
                        break;
+
                     case "HORSE":
                         try {
                             Horse horse = new Horse(fields[1], fields[2], ConvertString.toInt(fields[3]), fields[4], ConvertString.toFloat(fields[5]), fields[6], ConvertString.toFloat(fields[7]), ConvertString.toFloat(fields[8]), ConvertString.toFloat(fields[9]));
@@ -86,6 +88,7 @@ public class FileTest {
                             System.out.println("[ERROR] - " + e.getMessage());
                         }
                         break;
+
                     case "BIRD":
                         try{
                             Bird bird = new Bird(fields[1], fields[2], ConvertString.toInt(fields[3]), fields[4], ConvertString.toFloat(fields[5]), fields[6], ConvertString.toFloat(fields[7]), ConvertString.toFloat(fields[8]));
@@ -96,11 +99,11 @@ public class FileTest {
                             System.out.println("[ERROR] - " + e.getMessage());
                         }
                         break;
+
                     default:
                         System.out.println("Data Unknown");
                         break;
                 }
-
                 line = bufferedReader.readLine();
             }
 
