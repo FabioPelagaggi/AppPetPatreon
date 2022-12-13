@@ -17,12 +17,12 @@ public class Dog extends Pet {
         this.castrated = castrated;
         this.bathCost = bathCost;
         this.toysCost = toysCost;
-
+        
         if (size != null) {
-            this.size = size;
-        } else {
             throw new InvalidSize("The size cannot be null");
         }
+
+        this.size = size;
     }
 
     public String getBreed() {
@@ -44,16 +44,16 @@ public class Dog extends Pet {
         float bathCost = this.getBathCost();
         float toysCost = this.getToysCost();
 
-        if (size.equalsIgnoreCase("small")){
+        if ("small".equalsIgnoreCase(size)){
             foodCost *= 0.5f;
             bathCost *= 0.5f;
             toysCost *= 0.5f;
         }
-        else if (size.equalsIgnoreCase("medium")){
+        else if ("medium".equalsIgnoreCase(size)){
             bathCost *= 1.5f;
             toysCost *= 1.5f;
         }
-        else if (size.equalsIgnoreCase("large")){
+        else if ("large".equalsIgnoreCase(size)){
             foodCost *= 2f;
             bathCost *= 1.5f;
         }

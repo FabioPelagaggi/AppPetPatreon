@@ -9,16 +9,16 @@ public class Bird extends Pet{
     private float hayCost;
     private float toysCost;
     
-    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost, float toysCost) throws Exception{
+    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost, float toysCost) throws Exception{       
         super(name, animalType, age, gender, foodCost);
         this.hayCost = hayCost;
         this.toysCost = toysCost;
         
-        if (size != null) {
-            this.size = size;
-        } else {
+        if (size == null) {
             throw new InvalidSize("The size cannot be null");
         }
+        
+        this.size = size;
     }
 
     public String getSize() {

@@ -7,6 +7,6 @@
     <title>App PET Patreon</title>
 </head>
 <body>
-    <p>Fabio Pelagaggi</p>
+    <p>App Pet Patreon</p>
 </body>
 </html>
