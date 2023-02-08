@@ -7,6 +7,10 @@
     <title>App PET Patreon</title>
 </head>
 <body>
-    <p>App Pet Patreon</p>
+    <h2>App Pet Patreon</h2>
+
+    
+    <h3>New <a href="/user">User</a></h3>
+
 </body>
 </html>
