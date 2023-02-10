@@ -18,7 +18,7 @@ public class Dog extends Pet {
         this.bathCost = bathCost;
         this.toysCost = toysCost;
         
-        if (size != null) {
+        if (size == null) {
             throw new InvalidSize("The size cannot be null");
         }
 
