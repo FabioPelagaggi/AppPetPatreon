@@ -16,8 +16,7 @@ public class PetController {
 
     @PostMapping(value = "/pet/add")
     public String add(String pet){
-        System.out.println(pet);
-
+        
         switch(pet){
             case "Dog":
                 return "pet/regDog";
@@ -30,9 +29,5 @@ public class PetController {
         }
     }
 
-    @PostMapping(value = "/pet/addBird")
-    public String addBird(Pet pet){
-        System.out.println(pet);
-        return "redirect:/";
-    }
+    
 }

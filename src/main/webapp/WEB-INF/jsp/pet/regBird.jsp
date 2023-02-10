@@ -17,6 +17,15 @@
                         <label>Name:</label> 	
                         <input type="text" name="name" value="Bat" class="form-control">
                     </div>
+
+                    <div class="mb-3 mt-3">	
+                      <label><b>Animal Type</b></label>			
+                      <div class="form-check mb-3 mt-3">
+                        <label class="form-check-label">
+                          <input type="radio" name="animalType" value="Bird" class="form-check-input" checked> Bird
+                        </label>
+                      </div>
+                    </div>
                     
                     <div class="form-group mb-3">
                         <label>Age:</label>
@@ -26,6 +35,11 @@
                     <div class="form-group mb-3">
                         <label>Gender:</label>
                         <input type="text" name="gender" value="Male / Female" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label>Monthly Food Cost:</label>
+                      <input type="number" name="foodCost" value="12" class="form-control">
                     </div>
                                 
                     <div class="mb-3 mt-3">	
@@ -39,20 +53,16 @@
         
                         <div class="form-check mb-3">
                           <label class="form-check-label">
-                            <input type="radio" name="size" value="Medium" class="form-check-input"> Medium
+                            <input type="radio" name="size" value="Medium" class="form-check-input" checked> Medium
                           </label>
                         </div>
         
                         <div class="form-check mb-3">
                           <label class="form-check-label">
-                            <input type="radio" name="size" value="Small" checked class="form-check-input"> Small
+                            <input type="radio" name="size" value="Small" class="form-check-input"> Small
                           </label>  
                         </div>
-                    </div>
 
-                    <div class="form-group mb-3">
-                        <label>Monthly Food Cost:</label>
-                        <input type="number" name="foodCost" value="12" class="form-control">
                     </div>
 
                     <div class="form-group mb-3">
@@ -65,15 +75,6 @@
                         <input type="number" name="toysCost" value="5" class="form-control">
                     </div>
 
-                    <div class="mb-3 mt-3">	
-                        <label><b>Animal Type</b></label>			
-                        <div class="form-check mb-3 mt-3">
-                          <label class="form-check-label">
-                            <input type="radio" name="animalType" value="Bird" class="form-check-input" > Bird
-                          </label>
-                        </div>
-                    </div>
-                    
                     <button type="submit" class="align-self-center btn btn-primary">Confirm</button>
 
                 </div>

@@ -18,7 +18,7 @@
                 <label><b>Animal Type</b></label>			
                 <div class="form-check mb-3 mt-3">
                   <label class="form-check-label">
-                    <input type="radio" name="pet" value="Bird" class="form-check-input" > Bird
+                    <input type="radio" name="pet" value="Bird" checked class="form-check-input" > Bird
                   </label>
                 </div>
 
@@ -30,7 +30,7 @@
 
                 <div class="form-check mb-3">
                   <label class="form-check-label">
-                    <input type="radio" name="pet" value="Horse" checked class="form-check-input"> Horse
+                    <input type="radio" name="pet" value="Horse" class="form-check-input"> Horse
                   </label>  
                 </div>
               </div>
