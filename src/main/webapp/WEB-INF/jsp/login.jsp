@@ -9,13 +9,13 @@
     <body>
         <div class="d-flex justify-content-center">
             <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
-                <form action="/login/log" method="post">
+                <form action="/login" method="post">
                     <div class="d-flex flex-column">
                         <h2 class="mt-3 align-self-center">Login</h2>
                 
                         <div class="form-group mb-3">
                             <label>E-mail:</label>
-                            <input type="email" name="email" value="bat18@gmail.com" class="form-control">
+                            <input type="email" name="email" value="bat@gmail.com" class="form-control">
                         </div>
                         
                         <div class="form-group mb-3">

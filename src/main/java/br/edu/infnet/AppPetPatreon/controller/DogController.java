@@ -11,7 +11,7 @@ public class DogController {
     @PostMapping(value = "/pet/addDog")
     public String addDog(Dog dog){
         System.out.println(dog);
-        return "redirect:/";
+        return "redirect:/home";
     }
     
 }
