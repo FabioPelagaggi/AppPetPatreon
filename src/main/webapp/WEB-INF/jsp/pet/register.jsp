@@ -8,7 +8,7 @@
     </head>
     <body>
       <div class="d-flex justify-content-center">
-        <div class="shadow p-3 mb-5 bg-white container card card-block w-50 m-5">
+        <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
           <form action="/pet/add" method="post">
             <div class="d-flex flex-column">
               <h2 class="align-self-center">New Pet</h3>

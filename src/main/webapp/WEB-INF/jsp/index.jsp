@@ -17,10 +17,13 @@
         <div class="container-fluid">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="/user">New Patreon</a>
+              <a class="nav-link active" href="/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/pet">New Pet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/table">Users Table</a>
             </li>
           </ul>
         </div>

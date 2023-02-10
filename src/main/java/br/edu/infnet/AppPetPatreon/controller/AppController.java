@@ -10,4 +10,5 @@ public class AppController {
     public String indexScreen(){
         return "index";
     }
+    
 }
