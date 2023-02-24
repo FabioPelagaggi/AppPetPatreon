@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 import br.edu.infnet.AppPetPatreon.repository.PetRepository;
 
 @Controller

@@ -19,9 +19,6 @@
       <div class="container-fluid">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/user/register">New Patreon</a>
           </li>
           <li class="nav-item">
@@ -32,6 +29,15 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pet/table">Pets Table</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link active" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/logout">Logout</a>
           </li>
         </ul>
       </div>

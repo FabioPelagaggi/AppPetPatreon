@@ -16,11 +16,10 @@ public class Patreon {
     public Patreon() {
     };
 
-    public Patreon(String name, String email, String phone, String password) throws Exception {
+    public Patreon(String name, String email, String phone) throws Exception {
         this.setName(Valid.name(name));
         this.email = Valid.email(email);
         this.phone = Valid.phone(phone);
-        this.password = password;
     };
 
     public void setId(Integer id) {
