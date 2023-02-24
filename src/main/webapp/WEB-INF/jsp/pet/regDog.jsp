@@ -78,8 +78,8 @@
               <div>
                 <label>Castrated</label>
                 <select class="form-select" name="castrated">
-                  <option value="0">Yes</option>
-                  <option value="1">No</option>
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
                 </select>
               </div>
 

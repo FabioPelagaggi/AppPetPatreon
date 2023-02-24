@@ -13,7 +13,6 @@ public class UserRepository {
 
     public static Patreon addedPatreon;
     public static Patreon removedPatreon;
-    public static Patreon logedUser;
 
     public static boolean add(Patreon patreon) {
 

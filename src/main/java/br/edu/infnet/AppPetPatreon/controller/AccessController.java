@@ -1,15 +1,19 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import br.edu.infnet.AppPetPatreon.repository.AccessRepository;
-import br.edu.infnet.AppPetPatreon.repository.UserRepository;
 
 @Controller
+@SessionAttributes("logedUser")
 public class AccessController {
 
     @GetMapping(value = "/login")
@@ -18,23 +22,23 @@ public class AccessController {
     }
 
     @GetMapping(value = "/logout")
-    public String logout() {
+    public String logout(HttpSession session, SessionStatus status) {
 
-        UserRepository.logedUser = null;
-
+        status.setComplete();
+        session.removeAttribute("logedUser");
+        AccessRepository.logedUser = null;
+        
         return "redirect:/home";
     }
 
     @PostMapping(value = "/login")
     public String login(Model model, @RequestParam String email, @RequestParam String password) {
-        System.out.println("RequestParam Email: " + email);
-        System.out.println("RequestParam Password: " + password);
 
         if (AccessRepository.validate(email, password)) {
 
-            model.addAttribute("logedUser", UserRepository.logedUser);
+            model.addAttribute("logedUser", AccessRepository.logedUser);
 
-            return "index";
+            return "redirect:/home";
         } else {
 
             model.addAttribute("errorMsg", "Invalid Email or Password");

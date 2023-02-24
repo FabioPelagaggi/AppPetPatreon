@@ -145,6 +145,8 @@ public class Patreon {
         stringBuilder.append(this.phone);
         stringBuilder.append(";");
         stringBuilder.append(this.password);
+        stringBuilder.append(";");
+        stringBuilder.append(this.admin);
         return stringBuilder.toString();
     };
 }
