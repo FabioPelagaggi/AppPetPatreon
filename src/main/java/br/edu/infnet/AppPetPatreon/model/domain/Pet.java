@@ -4,6 +4,7 @@ import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 
 public abstract class Pet {
 
+    private Integer id;
     private String name;
     private String animalType;
     private int age;
@@ -17,6 +18,14 @@ public abstract class Pet {
         this.gender = gender;
         this.animalType = animalType;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    };
+
+    public Integer getId() {
+        return id;
+    };
 
     public String getName() {
         return name;

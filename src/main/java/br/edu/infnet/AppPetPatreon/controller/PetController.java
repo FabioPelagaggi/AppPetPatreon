@@ -3,7 +3,11 @@ package br.edu.infnet.AppPetPatreon.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import br.edu.infnet.AppPetPatreon.model.domain.Pet;
+import br.edu.infnet.AppPetPatreon.repository.PetRepository;
 
 @Controller
 public class PetController {
@@ -28,8 +32,23 @@ public class PetController {
         }
     }
 
+    @GetMapping(value = "/pet/{id}/remove")
+    public String remove(@PathVariable Integer id) {
+
+        PetRepository.remove(id);
+
+        return "redirect:/pet/table";
+    }
+
     @GetMapping(value = "/pet/table")
     public String petsTableScreen(Model model) {
+
+        model.addAttribute("pets", PetRepository.getPets());
+        model.addAttribute("addedPet", PetRepository.addedPet);
+        model.addAttribute("removedPet", PetRepository.removedPet);
+
+        PetRepository.addedPet = null;
+        PetRepository.removedPet = null;
 
         return "pet/table";
     }

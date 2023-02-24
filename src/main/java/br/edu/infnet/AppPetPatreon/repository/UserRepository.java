@@ -11,7 +11,12 @@ public class UserRepository {
     private static Integer id = 0;
     private static Map<Integer, Patreon> patreonsMap = new HashMap<Integer, Patreon>();
 
+    public static Patreon addedPatreon;
+    public static Patreon removedPatreon;
+
     public static boolean add(Patreon patreon) {
+
+        addedPatreon = patreon;
 
         patreon.setId(id++);
 
@@ -29,7 +34,7 @@ public class UserRepository {
     }
 
     public static void remove(Integer id) {
-        patreonsMap.remove(id);
+        removedPatreon = patreonsMap.remove(id);
     }
 
     public static List<Patreon> getPatreons() {

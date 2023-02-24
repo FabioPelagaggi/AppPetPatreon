@@ -1,7 +1,5 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +11,6 @@ import br.edu.infnet.AppPetPatreon.repository.UserRepository;
 
 @Controller
 public class UserController {
-
-    private Patreon addedPatreon;
-    private Patreon removedPatreon;
 
     @GetMapping(value = "/user/register")
     public String registerScreen() {
@@ -30,8 +25,6 @@ public class UserController {
     @PostMapping(value = "/user/add")
     public String add(Patreon patreon) {
 
-        addedPatreon = patreon;
-
         UserRepository.add(patreon);
 
         return "redirect:/user/table";
@@ -39,8 +32,6 @@ public class UserController {
 
     @GetMapping(value = "/user/{id}/remove")
     public String remove(@PathVariable Integer id) {
-
-        removedPatreon = UserRepository.get(id);
 
         UserRepository.remove(id);
 
@@ -51,11 +42,11 @@ public class UserController {
     public String usersTableScreen(Model model) {
 
         model.addAttribute("patreons", UserRepository.getPatreons());
-        model.addAttribute("addedPatreon", addedPatreon);
-        model.addAttribute("removedPatreon", removedPatreon);
+        model.addAttribute("addedPatreon", UserRepository.addedPatreon);
+        model.addAttribute("removedPatreon", UserRepository.removedPatreon);
 
-        addedPatreon = null;
-        removedPatreon = null;
+        UserRepository.addedPatreon = null;
+        UserRepository.removedPatreon = null;
 
         return "user/table";
     }
