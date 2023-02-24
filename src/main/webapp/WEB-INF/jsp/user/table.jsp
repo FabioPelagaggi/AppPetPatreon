@@ -12,6 +12,8 @@
     </head>
 
     <body>
+      <c:import url="/WEB-INF/jsp/navbar.jsp" />
+      
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
 
@@ -51,6 +53,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Password</th>
+                        <th scope="col">Admin</th>
                         <th scope="col">Delete</th>
                       </tr>
                     </thead>
@@ -62,6 +65,7 @@
                           <td>${patreon.email}</td>
                           <td>${patreon.phone}</td>
                           <td>${patreon.password}</td>
+                          <td>${patreon.admin}</td>
                           <td>
                             <a href="/user/${patreon.id}/remove">
                               <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
@@ -74,7 +78,7 @@
                 </div>
               </c:if>
 
-              <button type="submit" class="align-self-center btn btn-primary mb-3">Home</button>
+              <button type="submit" class="align-self-center btn btn-primary m-3">Home</button>
 
             </div>
 

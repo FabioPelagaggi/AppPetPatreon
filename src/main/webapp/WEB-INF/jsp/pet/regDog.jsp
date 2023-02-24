@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <!DOCTYPE html>
   <html>
 
@@ -9,6 +10,8 @@
   </head>
 
   <body>
+    <c:import url="/WEB-INF/jsp/navbar.jsp" />
+    
     <div class="d-flex justify-content-center">
       <div class="shadow p-3 mb-5 bg-white container card card-block w-50 m-5">
         <form action="/pet/addDog" method="post">

@@ -1,50 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <!DOCTYPE html>
-  <html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-  <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <meta charset="ISO-8859-1" />
-    <title>Pet Patreon</title>
-  </head>
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <meta charset="ISO-8859-1" />
+      <title>Pet Patreon</title>
+    </head>
 
-  <body>
-    <div class="p-5 bg-primary text-white text-center">
-      <h1>Pet Patreon</h1>
-      <p>Support loving pets in need...</p>
-    </div>
+    <body>
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <div class="container-fluid">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/user/register">New Patreon</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/table">Patreons Table</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pet">New Pet</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pet/table">Pets Table</a>
-          </li>
-        </ul>
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Loging Out</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
 
-        <ul class="navbar-nav navbar-right">
-          <li class="nav-item">
-            <a class="nav-link active" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/logout">Logout</a>
-          </li>
-        </ul>
+            <!-- Modal body -->
+            <div class="alert alert-danger">
+              <strong>Warning!</strong> Are you sure you want to logout?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <a href="/logout" class="btn btn-success" data-bs-dismiss="modal">Yes</a>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </nav>
 
-    <div class="container mt-5">
-      <!--
+      <div class="p-5 bg-primary text-white text-center">
+        <h1>Pet Patreon</h1>
+        <p>Support loving pets in need...</p>
+      </div>
+
+      <c:import url="/WEB-INF/jsp/navbar.jsp" />
+
+      <div class="container mt-5">
+        <!--
         <div class="row">
           <div class="col-sm-4">
             <h2>About Me</h2>
@@ -84,11 +86,11 @@
           </div>
         </div>
         -->
-    </div>
+      </div>
 
-    <div class="mt-5 p-4 bg-dark text-white text-center">
-      <p>Footer</p>
-    </div>
-  </body>
+      <div class="mt-5 p-4 bg-dark text-white text-center">
+        <p>Footer</p>
+      </div>
+    </body>
 
-  </html>
+    </html>

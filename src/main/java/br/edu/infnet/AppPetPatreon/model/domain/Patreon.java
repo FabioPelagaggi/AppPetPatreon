@@ -12,6 +12,7 @@ public class Patreon {
     private String email;
     private String phone;
     private String password;
+    private boolean admin = false;
 
     public Patreon() {
     };
@@ -76,6 +77,14 @@ public class Patreon {
 
     public String getPassword() {
         return password;
+    };
+
+    public void setAdmin(boolean isAdmin) {
+        this.admin = isAdmin;
+    };
+
+    public boolean getAdmin() {
+        return admin;
     };
 
     public String getName() {

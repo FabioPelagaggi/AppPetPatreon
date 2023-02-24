@@ -27,7 +27,7 @@ public class UserController {
 
         UserRepository.add(patreon);
 
-        return "redirect:/user/table";
+        return "redirect:/home";
     }
 
     @GetMapping(value = "/user/{id}/remove")

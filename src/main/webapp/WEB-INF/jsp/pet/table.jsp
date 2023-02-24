@@ -12,6 +12,8 @@
     </head>
 
     <body>
+      <c:import url="/WEB-INF/jsp/navbar.jsp" />
+
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
 

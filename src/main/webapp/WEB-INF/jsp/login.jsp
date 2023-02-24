@@ -11,6 +11,8 @@
     </head>
 
     <body>
+      <c:import url="/WEB-INF/jsp/navbar.jsp" />
+      
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
           <c:if test="${not empty errorMsg}">
@@ -25,7 +27,7 @@
 
               <div class="form-group mb-3">
                 <label>E-mail:</label>
-                <input type="email" name="email" value="bat@gmail.com" class="form-control" />
+                <input type="email" name="email" value="bat18@gmail.com" class="form-control" />
               </div>
 
               <div class="form-group mb-3">
