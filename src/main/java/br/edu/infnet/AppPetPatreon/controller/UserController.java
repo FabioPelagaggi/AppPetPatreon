@@ -11,19 +11,19 @@ import br.edu.infnet.AppPetPatreon.repository.UserRepository;
 
 @Controller
 public class UserController {
-    
+
     @GetMapping(value = "/user/register")
-    public String registerScreen(){
+    public String registerScreen() {
         return "user/register";
     }
 
     @GetMapping(value = "/user/password")
-    public String passwordScreen(){
+    public String passwordScreen() {
         return "/";
     }
 
     @PostMapping(value = "/user/add")
-    public String add(Patreon patreon){
+    public String add(Patreon patreon) {
         System.out.println(patreon);
 
         UserRepository.add(patreon);
@@ -32,10 +32,10 @@ public class UserController {
     }
 
     @GetMapping(value = "/user/table")
-    public String usersTableScreen(){
+    public String usersTableScreen() {
 
         System.out.println("Patreons list");
-        
+
         List<Patreon> patreons = UserRepository.getPatreons();
 
         System.out.println(patreons.size());

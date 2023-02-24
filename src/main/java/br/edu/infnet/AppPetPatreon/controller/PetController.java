@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PetController {
 
     @GetMapping(value = "/pet")
-    public String registerScreen(){
+    public String registerScreen() {
         return "pet/register";
     }
 
     @PostMapping(value = "/pet/add")
-    public String add(String pet){
-        
-        switch(pet){
+    public String add(String pet) {
+
+        switch (pet) {
             case "Dog":
                 return "pet/regDog";
             case "Bird":
@@ -27,5 +27,4 @@ public class PetController {
         }
     }
 
-    
 }

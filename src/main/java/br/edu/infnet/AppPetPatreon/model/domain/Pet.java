@@ -21,15 +21,19 @@ public abstract class Pet {
     public String getName() {
         return name;
     }
+
     public String getAnimalType() {
         return animalType;
     }
+
     public int getAge() {
         return age;
     }
+
     public String getGender() {
         return gender;
     }
+
     public float getFoodCost() {
         return foodCost;
     }

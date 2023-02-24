@@ -9,9 +9,9 @@ import br.edu.infnet.AppPetPatreon.model.domain.Horse;
 public class HorseController {
 
     @PostMapping(value = "/pet/addHorse")
-    public String addHorse(Horse horse){
+    public String addHorse(Horse horse) {
         System.out.println(horse);
         return "redirect:/home";
     }
-    
+
 }

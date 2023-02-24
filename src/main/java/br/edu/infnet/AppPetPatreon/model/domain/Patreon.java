@@ -11,8 +11,9 @@ public class Patreon {
     private String email;
     private String phone;
 
-    public Patreon(){};
-    
+    public Patreon() {
+    };
+
     public Patreon(String name, String email, String phone) throws Exception {
         this.setName(Valid.name(name));
         this.email = Valid.email(email);
@@ -23,7 +24,7 @@ public class Patreon {
         this.firstName = inputFirstName;
     };
 
-    private String getFirstName(){
+    private String getFirstName() {
         return firstName;
     };
 
@@ -31,7 +32,7 @@ public class Patreon {
         this.middleName = inputMiddleName;
     };
 
-    private String getMiddleName(){
+    private String getMiddleName() {
         return middleName;
     };
 
@@ -39,19 +40,19 @@ public class Patreon {
         this.lastName = inputLastName;
     };
 
-    private String getLastName(){
+    private String getLastName() {
         return lastName;
     };
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public String getEmail() {
         return email;
     };
-    
-    public void setPhone(String phone){
+
+    public void setPhone(String phone) {
         this.phone = phone;
     };
 
@@ -59,7 +60,7 @@ public class Patreon {
         return phone;
     };
 
-    public String getName(){
+    public String getName() {
         StringBuilder fullName = new StringBuilder();
 
         String firstName = getFirstName();
@@ -67,12 +68,12 @@ public class Patreon {
         String lastName = getLastName();
 
         fullName.append(firstName);
-        
-        if (middleName != ""){
+
+        if (middleName != "") {
             fullName.append(" ");
             fullName.append(middleName);
         }
-        if (lastName != ""){
+        if (lastName != "") {
             fullName.append(" ");
             fullName.append(lastName);
         }
@@ -83,20 +84,20 @@ public class Patreon {
         String[] nameArray = inputFullName.split(" ");
 
         setFirstName(nameArray[0]);
-        if(nameArray.length > 2){
+        if (nameArray.length > 2) {
             setMiddleName(middleNameBuilder(nameArray));
         }
-        if(nameArray.length > 1){
-            setLastName(nameArray[nameArray.length -1]);
+        if (nameArray.length > 1) {
+            setLastName(nameArray[nameArray.length - 1]);
         }
     };
 
-    private String middleNameBuilder(String[] nameArray){
+    private String middleNameBuilder(String[] nameArray) {
         StringBuilder middleNameBuilder = new StringBuilder();
 
-        for (int i = 1; i < nameArray.length -1; i++) {
+        for (int i = 1; i < nameArray.length - 1; i++) {
             middleNameBuilder.append(nameArray[i]);
-            if(i < nameArray.length -2){
+            if (i < nameArray.length - 2) {
                 middleNameBuilder.append(" ");
             }
         }

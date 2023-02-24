@@ -11,13 +11,14 @@ public class Dog extends Pet {
     private float bathCost;
     private float toysCost;
 
-    public Dog(String name, String animalType, int age, String gender, float foodCost, String breed, String size, boolean castrated, float bathCost, float toysCost) throws Exception{
+    public Dog(String name, String animalType, int age, String gender, float foodCost, String breed, String size,
+            boolean castrated, float bathCost, float toysCost) throws Exception {
         super(name, animalType, age, gender, foodCost);
         this.breed = breed;
         this.castrated = castrated;
         this.bathCost = bathCost;
         this.toysCost = toysCost;
-        
+
         if (size == null) {
             throw new InvalidSize("The size cannot be null");
         }
@@ -28,12 +29,15 @@ public class Dog extends Pet {
     public String getBreed() {
         return breed;
     }
+
     public String getSize() {
         return size;
     }
+
     public float getBathCost() {
         return bathCost;
     }
+
     public float getToysCost() {
         return toysCost;
     }
@@ -44,23 +48,21 @@ public class Dog extends Pet {
         float bathCost = this.getBathCost();
         float toysCost = this.getToysCost();
 
-        if ("small".equalsIgnoreCase(size)){
+        if ("small".equalsIgnoreCase(size)) {
             foodCost *= 0.5f;
             bathCost *= 0.5f;
             toysCost *= 0.5f;
-        }
-        else if ("medium".equalsIgnoreCase(size)){
+        } else if ("medium".equalsIgnoreCase(size)) {
             bathCost *= 1.5f;
             toysCost *= 1.5f;
-        }
-        else if ("large".equalsIgnoreCase(size)){
+        } else if ("large".equalsIgnoreCase(size)) {
             foodCost *= 2f;
             bathCost *= 1.5f;
         }
         return foodCost + bathCost + toysCost;
     }
 
-    public void print(){       
+    public void print() {
         System.out.println("Dog Name: " + this.getName());
         System.out.println("Breed: " + this.getBreed());
         System.out.println("Gender: " + this.getGender());
@@ -80,9 +82,9 @@ public class Dog extends Pet {
         stringBuilder.append(";");
         stringBuilder.append(size);
         stringBuilder.append(";");
-        if (castrated){
+        if (castrated) {
             stringBuilder.append("Yes;");
-        } else{
+        } else {
             stringBuilder.append("No;");
         }
         stringBuilder.append(bathCost);

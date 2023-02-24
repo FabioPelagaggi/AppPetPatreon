@@ -3,30 +3,33 @@ package br.edu.infnet.AppPetPatreon.model.domain;
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidSize;
 
-public class Bird extends Pet{
+public class Bird extends Pet {
 
     private String size;
     private float hayCost;
     private float toysCost;
-    
-    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost, float toysCost) throws Exception{       
+
+    public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost,
+            float toysCost) throws Exception {
         super(name, animalType, age, gender, foodCost);
         this.hayCost = hayCost;
         this.toysCost = toysCost;
-        
+
         if (size == null) {
             throw new InvalidSize("The size cannot be null");
         }
-        
+
         this.size = size;
     }
 
     public String getSize() {
         return size;
     }
+
     public float getHayCost() {
         return hayCost;
     }
+
     public float getToysCost() {
         return toysCost;
     }
@@ -37,11 +40,10 @@ public class Bird extends Pet{
         float hayCost = this.getHayCost();
         float toysCost = this.getToysCost();
 
-        if (size.equalsIgnoreCase("small")){
+        if (size.equalsIgnoreCase("small")) {
             foodCost *= 0.3f;
             toysCost *= 0.5f;
-        }
-        else if (size.equalsIgnoreCase("large")){
+        } else if (size.equalsIgnoreCase("large")) {
             foodCost *= 1.2f;
             hayCost *= 1.2f;
             toysCost *= 1.2f;
@@ -50,7 +52,7 @@ public class Bird extends Pet{
         return foodCost + hayCost + toysCost;
     }
 
-    public void print(){       
+    public void print() {
         System.out.println("Bird Name: " + this.getName());
         System.out.println("Gender: " + this.getGender());
         System.out.println("Age: " + this.getAge());

@@ -2,14 +2,15 @@ package br.edu.infnet.AppPetPatreon.model.domain;
 
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 
-public class Horse extends Pet{
-    
+public class Horse extends Pet {
+
     private String breed;
     private float hayCost;
     private float saltCost;
     private float vetCost;
 
-    public Horse(String name, String animalType, int age, String gender, float foodCost, String breed, float hayCost, float saltCost, float vetCost) throws Exception{
+    public Horse(String name, String animalType, int age, String gender, float foodCost, String breed, float hayCost,
+            float saltCost, float vetCost) throws Exception {
         super(name, animalType, age, gender, foodCost);
         this.breed = breed;
         this.hayCost = hayCost;
@@ -20,12 +21,15 @@ public class Horse extends Pet{
     public String getBreed() {
         return breed;
     }
+
     public float getHayCost() {
         return hayCost;
     }
+
     public float getSaltCost() {
         return saltCost;
     }
+
     public float getVetCost() {
         return vetCost;
     }
@@ -39,7 +43,7 @@ public class Horse extends Pet{
         return foodCost + hayCost + vetCost;
     }
 
-    public void print(){       
+    public void print() {
         System.out.println("Horse Name: " + this.getName());
         System.out.println("Breed: " + this.getBreed());
         System.out.println("Gender: " + this.getGender());

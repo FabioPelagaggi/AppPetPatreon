@@ -6,5 +6,5 @@ public class InvalidDonation extends Exception {
     public InvalidDonation(String message) {
         super("Invalid Donation: " + message + ".");
     }
-    
+
 }
