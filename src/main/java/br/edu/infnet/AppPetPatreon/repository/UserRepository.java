@@ -7,14 +7,16 @@ import java.util.Map;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 
 public class UserRepository {
-    
+
     private static Integer id = 0;
     private static Map<Integer, Patreon> patreonsMap = new HashMap<Integer, Patreon>();
 
     public static boolean add(Patreon patreon) {
 
-        try{
-            patreonsMap.put(id++, patreon);
+        patreon.setId(id++);
+
+        try {
+            patreonsMap.put(patreon.getId(), patreon);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -22,11 +24,15 @@ public class UserRepository {
         }
     }
 
+    public static Patreon get(Integer id) {
+        return patreonsMap.get(id);
+    }
+
     public static void remove(Integer id) {
         patreonsMap.remove(id);
     }
 
     public static List<Patreon> getPatreons() {
-        return patreonsMap.values().stream().toList(); 
+        return patreonsMap.values().stream().toList();
     }
 }

@@ -1,6 +1,7 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -25,6 +26,12 @@ public class PetController {
             default:
                 return "pet/register";
         }
+    }
+
+    @GetMapping(value = "/pet/table")
+    public String petsTableScreen(Model model) {
+
+        return "pet/table";
     }
 
 }

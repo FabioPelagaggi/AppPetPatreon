@@ -5,19 +5,30 @@ import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 
 public class Patreon {
 
+    private Integer id;
     private String firstName;
     private String middleName = "";
     private String lastName = "";
     private String email;
     private String phone;
+    private String password;
 
     public Patreon() {
     };
 
-    public Patreon(String name, String email, String phone) throws Exception {
+    public Patreon(String name, String email, String phone, String password) throws Exception {
         this.setName(Valid.name(name));
         this.email = Valid.email(email);
         this.phone = Valid.phone(phone);
+        this.password = password;
+    };
+
+    public void setId(Integer id) {
+        this.id = id;
+    };
+
+    public Integer getId() {
+        return id;
     };
 
     private void setFirstName(String inputFirstName) {
@@ -58,6 +69,14 @@ public class Patreon {
 
     public String getPhone() {
         return phone;
+    };
+
+    public void setPassword(String password) {
+        this.password = password;
+    };
+
+    public String getPassword() {
+        return password;
     };
 
     public String getName() {
@@ -109,11 +128,15 @@ public class Patreon {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(CONST.PATREON_TAG);
         stringBuilder.append(";");
+        stringBuilder.append(this.id);
+        stringBuilder.append(";");
         stringBuilder.append(this.getName());
         stringBuilder.append(";");
         stringBuilder.append(this.email);
         stringBuilder.append(";");
         stringBuilder.append(this.phone);
+        stringBuilder.append(";");
+        stringBuilder.append(this.password);
         return stringBuilder.toString();
     };
 }

@@ -6,6 +6,7 @@
 
     <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <meta charset="ISO-8859-1">
       <title>Users Data Table</title>
     </head>
@@ -13,51 +14,61 @@
     <body>
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
+
+          <c:if test="${not empty addedPatreon}">
+            <div class="alert alert-success">
+              <strong>Success!</strong> New Patreon ${newPatreon.name} was registred.
+            </div>
+          </c:if>
+
+          <c:if test="${not empty removedPatreon}">
+            <div class="alert alert-success">
+              <strong>Success!</strong> Patreon ${removedPatreon.name} was removed.
+            </div>
+          </c:if>
+
           <form action="/" method="get">
 
             <div class="d-flex flex-column">
-              <h2 class="m-3 align-self-center">Users Data</h2>
+              <h2 class="m-3 align-self-center">Patreons Data</h2>
 
-              <c:if test="${empty regPatreon}">
+              <c:if test="${empty patreons}">
                 <div class="alert alert-danger">
-                  <strong>Warning!</strong> ${errorMsg}
+                  <strong>Warning!</strong> No users registered yet.
                 </div>
               </c:if>
 
-              <c:if test="${not empty regPatreon}">
+              <c:if test="${not empty patreons}">
                 <div>
+                  <div>
+                    <h5 class="m-3 align-self-center">Patreons # ${patreons.size()}</h5>
+                  </div>
                   <table class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Password</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Vlad Tepes Dracula</td>
-                        <td>bat18@gmail.com</td>
-                        <td>666</td>
-                        <td>65683156613</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton@hotmail.com</td>
-                        <td>@f#$%@#at</td>
-                        <td>23126156613</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>bird_person@tmail.com</td>
-                        <td>@twi%#$#$#!tter</td>
-                        <td>25126156513</td>
-                      </tr>
+                      <c:forEach items="${patreons}" var="patreon">
+                        <tr>
+                          <th scope="row">${patreon.id}</th>
+                          <td>${patreon.name}</td>
+                          <td>${patreon.email}</td>
+                          <td>${patreon.phone}</td>
+                          <td>${patreon.password}</td>
+                          <td>
+                            <a href="/user/${patreon.id}/remove">
+                              <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      </c:forEach>
                     </tbody>
                   </table>
                 </div>

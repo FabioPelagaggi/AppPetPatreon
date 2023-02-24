@@ -22,10 +22,16 @@
             <a class="nav-link active" href="/login">Login</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/user/register">New Patreon</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/table">Patreons Table</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/pet">New Pet</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/table">Users Table</a>
+            <a class="nav-link" href="/pet/table">Pets Table</a>
           </li>
         </ul>
       </div>

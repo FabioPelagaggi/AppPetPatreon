@@ -3,7 +3,9 @@ package br.edu.infnet.AppPetPatreon.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
@@ -11,6 +13,9 @@ import br.edu.infnet.AppPetPatreon.repository.UserRepository;
 
 @Controller
 public class UserController {
+
+    private Patreon addedPatreon;
+    private Patreon removedPatreon;
 
     @GetMapping(value = "/user/register")
     public String registerScreen() {
@@ -24,25 +29,33 @@ public class UserController {
 
     @PostMapping(value = "/user/add")
     public String add(Patreon patreon) {
-        System.out.println(patreon);
+
+        addedPatreon = patreon;
 
         UserRepository.add(patreon);
 
         return "redirect:/user/table";
     }
 
+    @GetMapping(value = "/user/{id}/remove")
+    public String remove(@PathVariable Integer id) {
+
+        removedPatreon = UserRepository.get(id);
+
+        UserRepository.remove(id);
+
+        return "redirect:/user/table";
+    }
+
     @GetMapping(value = "/user/table")
-    public String usersTableScreen() {
+    public String usersTableScreen(Model model) {
 
-        System.out.println("Patreons list");
+        model.addAttribute("patreons", UserRepository.getPatreons());
+        model.addAttribute("addedPatreon", addedPatreon);
+        model.addAttribute("removedPatreon", removedPatreon);
 
-        List<Patreon> patreons = UserRepository.getPatreons();
-
-        System.out.println(patreons.size());
-
-        for (Patreon patreon : patreons) {
-            System.out.println(patreon);
-        }
+        addedPatreon = null;
+        removedPatreon = null;
 
         return "user/table";
     }
