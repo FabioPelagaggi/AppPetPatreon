@@ -10,7 +10,9 @@ public class AccessRepository {
 
         boolean isValid = false;
 
-        for (Patreon patreon : UserRepository.getPatreons()) {
+        UserRepository userRepository = new UserRepository();
+
+        for (Patreon patreon : userRepository.getPatreons()) {
             if (patreon.getEmail().equals(email) && patreon.getPassword().equals(password)) {
                 System.out.println("Login Successful");
                 System.out.println("Welcome " + patreon.toString());

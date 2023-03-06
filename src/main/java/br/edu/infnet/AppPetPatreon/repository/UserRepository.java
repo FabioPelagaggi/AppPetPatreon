@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 
+@Repository
 public class UserRepository {
 
     private static Integer id = 0;
@@ -14,7 +17,7 @@ public class UserRepository {
     public static Patreon addedPatreon;
     public static Patreon removedPatreon;
 
-    public static boolean add(Patreon patreon) {
+    public boolean add(Patreon patreon) {
 
         addedPatreon = patreon;
 
@@ -29,15 +32,15 @@ public class UserRepository {
         }
     }
 
-    public static Patreon get(Integer id) {
+    public Patreon get(Integer id) {
         return patreonsMap.get(id);
     }
 
-    public static void remove(Integer id) {
+    public void remove(Integer id) {
         removedPatreon = patreonsMap.remove(id);
     }
 
-    public static List<Patreon> getPatreons() {
+    public List<Patreon> getPatreons() {
         return patreonsMap.values().stream().toList();
     }
 }
