@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 
+@Repository
 public class PetRepository {
 
     private static Integer id = 0;
@@ -14,7 +17,7 @@ public class PetRepository {
     public static Pet addedPet;
     public static Pet removedPet;
 
-    public static boolean add(Pet pet) {
+    public boolean add(Pet pet) {
 
         addedPet = pet;
 
@@ -29,15 +32,15 @@ public class PetRepository {
         }
     }
 
-    public static Pet get(Integer id) {
+    public Pet get(Integer id) {
         return petsMap.get(id);
     }
 
-    public static void remove(Integer id) {
+    public void remove(Integer id) {
         removedPet = petsMap.remove(id);
     }
 
-    public static List<Pet> getPets() {
+    public List<Pet> getPets() {
         return petsMap.values().stream().toList();
     }
 }

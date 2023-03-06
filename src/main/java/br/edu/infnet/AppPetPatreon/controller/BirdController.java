@@ -1,18 +1,22 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Bird;
-import br.edu.infnet.AppPetPatreon.repository.PetRepository;
+import br.edu.infnet.AppPetPatreon.service.PetService;
 
 @Controller
 public class BirdController {
 
+    @Autowired
+    private PetService petService;
+
     @PostMapping(value = "/pet/addBird")
     public String addBird(Bird bird) {
         
-        PetRepository.add(bird);
+        petService.add(bird);
 
         return "redirect:/pet/table";
     }
