@@ -1,5 +1,10 @@
 package br.edu.infnet.AppPetPatreon;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -17,13 +22,52 @@ public class UserLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Patreon patreon = new Patreon("Vlad Tepes Dracula", "bat18@gmail.com", "65683156613");
-        patreon.setPassword("666");
-        patreon.setAdmin(true);
+        String file = "Patreon.txt";
 
-        userService.add(patreon);
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        System.out.println("Application Started");
+            String line = bufferedReader.readLine();
+
+            String[] fields = null;
+
+            while (line != null) {
+                fields = line.split(";");
+
+                if (fields[0].equalsIgnoreCase("PATREON")) {
+                    try {
+
+                        Patreon patreon = new Patreon(fields[1], fields[2], fields[3]);
+                        patreon.setPassword(fields[4]);
+                        if (fields[5].equalsIgnoreCase("true")) {
+                            patreon.setAdmin(true);
+                        }
+
+                        System.out.println(patreon.toString());
+
+                        userService.add(patreon);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println("[ERROR] - " + e.getMessage());
+                    }
+                } else {
+                    System.out.println("Data is not valid");
+                }
+
+                line = bufferedReader.readLine();
+            }
+
+            bufferedReader.close();
+            fileReader.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("[ERROR] - " + e.getMessage());
+        }
+
+        System.out.println("Patreons Loaded");
     }
 
 }

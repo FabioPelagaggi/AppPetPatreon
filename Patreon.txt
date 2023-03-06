@@ -1,0 +1,4 @@
+PATREON;Vlad Tepes Dracula;bat18@gmail.com;65683156613;666;true
+PATREON;Alucard Tepes Draculian;bat@gmail.com;3123156613;666;false
+PATREON;Ferdinanda Jr;ferdinandinh@gmail.com;552378787878;111;false
+PATREON;Ricardão;riri@gmail.com;552378787878;222;true
