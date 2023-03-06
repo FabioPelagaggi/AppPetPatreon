@@ -20,7 +20,7 @@ public class UserLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        String file = "Patreon.txt";
+        String file = "Patreons.txt";
 
         try {
             FileReader fileReader = new FileReader(file);
@@ -53,7 +53,6 @@ public class UserLoader implements ApplicationRunner {
                 } else {
                     System.out.println("Data is not valid");
                 }
-
                 line = bufferedReader.readLine();
             }
 
@@ -67,5 +66,4 @@ public class UserLoader implements ApplicationRunner {
 
         System.out.println("Patreons Loaded");
     }
-
 }
