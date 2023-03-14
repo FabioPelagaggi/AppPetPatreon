@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.repository.UserRepository;
 import br.edu.infnet.AppPetPatreon.service.UserService;
 
 @Controller
@@ -47,11 +46,6 @@ public class UserController {
     public String usersTableScreen(Model model) {
 
         model.addAttribute("patreons", userService.getPatreons());
-        model.addAttribute("addedPatreon", UserRepository.addedPatreon);
-        model.addAttribute("removedPatreon", UserRepository.removedPatreon);
-
-        UserRepository.addedPatreon = null;
-        UserRepository.removedPatreon = null;
 
         return "user/table";
     }

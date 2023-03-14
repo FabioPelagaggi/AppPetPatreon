@@ -1,6 +1,7 @@
 package br.edu.infnet.AppPetPatreon.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,20 +15,20 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean add(Patreon patreon) {
-        return userRepository.add(patreon);
+    public Patreon add(Patreon patreon) {
+        return userRepository.save(patreon);
     }
 
     public void remove(Integer id) {
-        userRepository.remove(id);
+        userRepository.deleteById(id);
     }
 
-    public Patreon get(Integer id) {
-        return userRepository.get(id);
+    public Optional<Patreon> get(Integer id) {
+        return userRepository.findById(id);
     }
 
     public List<Patreon> getPatreons() {
-        return userRepository.getPatreons();
+        return (List<Patreon>) userRepository.findAll();
     }
 
 }
