@@ -9,4 +9,5 @@ public class CONST {
     public static String DOG_TAG = "DOG";
     public static String HORSE_TAG = "HORSE";
     public static String BIRD_TAG = "BIRD";
+    public static String AGENCY_TAG = "AGENCY";
 }

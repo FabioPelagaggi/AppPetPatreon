@@ -17,6 +17,12 @@
                             <a class="nav-link" href="/patreon/table">Patreons Table</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/agency/register">New Agency</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agency/table">Agencies Table</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/pet">New Pet</a>
                         </li>
                         <li class="nav-item">

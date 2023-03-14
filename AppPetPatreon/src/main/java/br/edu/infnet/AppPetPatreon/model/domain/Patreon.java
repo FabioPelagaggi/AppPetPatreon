@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +25,7 @@ public class Patreon {
     private String phone;
     private String password;
     private boolean admin = false;
+    // private List<Agency> agencies;
 
     public Patreon() {
     };
@@ -97,6 +100,14 @@ public class Patreon {
         return admin;
     };
 
+    // public void setAgencies(List<Agency> agencies) {
+    // this.agencies = agencies;
+    // };
+
+    // public List<Agency> getAgencies() {
+    // return agencies;
+    // };
+
     public String getName() {
         StringBuilder fullName = new StringBuilder();
 
@@ -157,6 +168,8 @@ public class Patreon {
         stringBuilder.append(this.password);
         stringBuilder.append(";");
         stringBuilder.append(this.admin);
+        // stringBuilder.append(";");
+        // stringBuilder.append(this.agencies);
         return stringBuilder.toString();
     };
 }

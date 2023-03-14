@@ -8,19 +8,19 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.service.PatreonService;
+import br.edu.infnet.AppPetPatreon.model.domain.Agency;
+import br.edu.infnet.AppPetPatreon.service.AgencyService;
 
 @Component
-public class PatreonLoader implements ApplicationRunner {
+public class AgencyLoader implements ApplicationRunner {
 
     @Autowired
-    private PatreonService patreonService;
+    private AgencyService agencyService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        String file = "textdata//Patreons.txt";
+        String file = "textdata//Agencies.txt";
 
         try {
             FileReader fileReader = new FileReader(file);
@@ -33,18 +33,14 @@ public class PatreonLoader implements ApplicationRunner {
             while (line != null) {
                 fields = line.split(";");
 
-                if (fields[0].equalsIgnoreCase("PATREON")) {
+                if (fields[0].equalsIgnoreCase("AGENCY")) {
                     try {
 
-                        Patreon patreon = new Patreon(fields[1], fields[2], fields[3]);
-                        patreon.setPassword(fields[4]);
-                        if (fields[5].equalsIgnoreCase("true")) {
-                            patreon.setAdmin(true);
-                        }
+                        Agency agency = new Agency(fields[1], fields[2]);
 
-                        System.out.println(patreon.toString());
+                        System.out.println(agency.toString());
 
-                        patreonService.add(patreon);
+                        agencyService.add(agency);
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -64,6 +60,6 @@ public class PatreonLoader implements ApplicationRunner {
             System.out.println("[ERROR] - " + e.getMessage());
         }
 
-        System.out.println("Patreons Loaded");
+        System.out.println("Agencys Loaded");
     }
 }

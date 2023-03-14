@@ -23,7 +23,7 @@ public class PetLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        String file = "Pets.txt";
+        String file = "textdata//Pets.txt";
 
         try {
             FileReader fileReader = new FileReader(file);
