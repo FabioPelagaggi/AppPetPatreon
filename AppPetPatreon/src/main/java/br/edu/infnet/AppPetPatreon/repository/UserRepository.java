@@ -1,4 +1,4 @@
- package br.edu.infnet.AppPetPatreon.repository;
+package br.edu.infnet.AppPetPatreon.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
