@@ -7,32 +7,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.repository.UserRepository;
+import br.edu.infnet.AppPetPatreon.repository.PatreonRepository;
 
 @Service
-public class UserService {
+public class PatreonService {
 
     @Autowired
-    private UserRepository userRepository;
+    private PatreonRepository patreonRepository;
 
     public Patreon add(Patreon patreon) {
-        return userRepository.save(patreon);
+        return patreonRepository.save(patreon);
     }
 
     public Patreon validate(String email, String password) {
-        return userRepository.validate(email, password);
+        return patreonRepository.validate(email, password);
     }
 
     public void remove(Integer id) {
-        userRepository.deleteById(id);
+        patreonRepository.deleteById(id);
     }
 
     public Optional<Patreon> get(Integer id) {
-        return userRepository.findById(id);
+        return patreonRepository.findById(id);
     }
 
     public List<Patreon> getPatreons() {
-        return (List<Patreon>) userRepository.findAll();
+        return (List<Patreon>) patreonRepository.findAll();
     }
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 
 @Repository
-public interface UserRepository extends CrudRepository<Patreon, Integer> {
+public interface PatreonRepository extends CrudRepository<Patreon, Integer> {
 
     @Query("from Patreon p where p.email = :email and p.password = :password")
     Patreon validate(String email, String password);

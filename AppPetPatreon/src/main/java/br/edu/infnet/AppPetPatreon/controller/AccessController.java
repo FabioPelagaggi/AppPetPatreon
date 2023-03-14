@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.service.UserService;
+import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Controller
 @SessionAttributes("logedUser")
 public class AccessController {
 
     Patreon logedUser = null;
-    
+
     @Autowired
-    private UserService userService;
+    private PatreonService userService;
 
     @GetMapping(value = "/login")
     public String loginScreen() {
@@ -34,7 +34,7 @@ public class AccessController {
         status.setComplete();
         session.removeAttribute("logedUser");
         logedUser = null;
-        
+
         return "redirect:/home";
     }
 

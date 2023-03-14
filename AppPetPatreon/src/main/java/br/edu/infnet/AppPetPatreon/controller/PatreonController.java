@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.service.UserService;
+import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Controller
-public class UserController {
+public class PatreonController {
 
     @Autowired
-    private UserService userService;
+    private PatreonService patreonService;
 
     @GetMapping(value = "/user/register")
     public String registerScreen() {
@@ -29,7 +29,7 @@ public class UserController {
     @PostMapping(value = "/user/add")
     public String add(Patreon patreon) {
 
-        userService.add(patreon);
+        patreonService.add(patreon);
 
         return "redirect:/home";
     }
@@ -37,7 +37,7 @@ public class UserController {
     @GetMapping(value = "/user/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
-        userService.remove(id);
+        patreonService.remove(id);
 
         return "redirect:/user/table";
     }
@@ -45,7 +45,7 @@ public class UserController {
     @GetMapping(value = "/user/table")
     public String usersTableScreen(Model model) {
 
-        model.addAttribute("patreons", userService.getPatreons());
+        model.addAttribute("patreons", patreonService.getPatreons());
 
         return "user/table";
     }

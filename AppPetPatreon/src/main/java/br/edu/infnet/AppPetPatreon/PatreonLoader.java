@@ -9,13 +9,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.service.UserService;
+import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Component
-public class UserLoader implements ApplicationRunner {
+public class PatreonLoader implements ApplicationRunner {
 
     @Autowired
-    private UserService userService;
+    private PatreonService patreonService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -44,7 +44,7 @@ public class UserLoader implements ApplicationRunner {
 
                         System.out.println(patreon.toString());
 
-                        userService.add(patreon);
+                        patreonService.add(patreon);
 
                     } catch (Exception e) {
                         e.printStackTrace();
