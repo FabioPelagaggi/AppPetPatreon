@@ -40,8 +40,8 @@
               </button>
 
               <div class="d-flex justify-content-around mb-3">
-                <a class="nav-link active" href="/user/register">Register</a>
-                <a class="nav-link active" href="/user/password">Reset Password</a>
+                <a class="nav-link active" href="/patreon/register">Register</a>
+                <a class="nav-link active" href="/patreon/password">Reset Password</a>
               </div>
             </div>
           </form>

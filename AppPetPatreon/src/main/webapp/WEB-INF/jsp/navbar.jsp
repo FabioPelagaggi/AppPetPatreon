@@ -37,7 +37,7 @@
 
                     <c:if test="${empty logedPatreon}">
                         <li class="nav-item">
-                            <a href="/user/register" class="nav-link">
+                            <a href="/patreon/register" class="nav-link">
                                 Register
                             </a>
                         </li>
