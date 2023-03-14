@@ -2,6 +2,7 @@ package br.edu.infnet.AppPetPatreon.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import br.edu.infnet.AppPetPatreon.repository.AccessRepository;
+import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
+import br.edu.infnet.AppPetPatreon.service.UserService;
 
 @Controller
 @SessionAttributes("logedUser")
 public class AccessController {
+
+    Patreon logedUser = null;
+    
+    @Autowired
+    private UserService userService;
 
     @GetMapping(value = "/login")
     public String loginScreen() {
@@ -26,7 +33,7 @@ public class AccessController {
 
         status.setComplete();
         session.removeAttribute("logedUser");
-        AccessRepository.logedUser = null;
+        logedUser = null;
         
         return "redirect:/home";
     }
@@ -34,9 +41,11 @@ public class AccessController {
     @PostMapping(value = "/login")
     public String login(Model model, @RequestParam String email, @RequestParam String password) {
 
-        if (AccessRepository.validate(email, password)) {
+        logedUser = userService.validate(email, password);
 
-            model.addAttribute("logedUser", AccessRepository.logedUser);
+        if (logedUser != null) {
+
+            model.addAttribute("logedUser", logedUser);
 
             return "redirect:/home";
         } else {

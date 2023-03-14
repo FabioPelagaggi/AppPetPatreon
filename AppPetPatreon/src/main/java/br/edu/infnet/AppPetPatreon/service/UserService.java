@@ -19,6 +19,10 @@ public class UserService {
         return userRepository.save(patreon);
     }
 
+    public Patreon validate(String email, String password) {
+        return userRepository.validate(email, password);
+    }
+
     public void remove(Integer id) {
         userRepository.deleteById(id);
     }
