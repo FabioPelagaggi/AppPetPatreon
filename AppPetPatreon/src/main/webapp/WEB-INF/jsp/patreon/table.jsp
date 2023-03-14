@@ -36,7 +36,7 @@
 
               <c:if test="${empty patreons}">
                 <div class="alert alert-danger">
-                  <strong>Warning!</strong> No users registered yet.
+                  <strong>Warning!</strong> No patreons registered yet.
                 </div>
               </c:if>
 
@@ -67,7 +67,7 @@
                           <td>${patreon.password}</td>
                           <td>${patreon.admin}</td>
                           <td>
-                            <a href="/user/${patreon.id}/remove">
+                            <a href="/patreon/${patreon.id}/remove">
                               <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
                             </a>
                           </td>

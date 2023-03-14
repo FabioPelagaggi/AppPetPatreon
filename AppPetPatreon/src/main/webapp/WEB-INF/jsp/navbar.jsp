@@ -9,12 +9,12 @@
                         <a class="nav-link" href="/home">Home</a>
                     </li>
 
-                    <c:if test="${logedUser.admin}">
+                    <c:if test="${logedPatreon.admin}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/user/register">New Patreon</a>
+                            <a class="nav-link" href="/patreon/register">New Patreon</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user/table">Patreons Table</a>
+                            <a class="nav-link" href="/patreon/table">Patreons Table</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/pet">New Pet</a>
@@ -24,8 +24,8 @@
                         </li>
                     </c:if>
 
-                    <c:if test="${not empty logedUser}">
-                        <c:if test="${not logedUser.admin}">
+                    <c:if test="${not empty logedPatreon}">
+                        <c:if test="${not logedPatreon.admin}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/donation">Make Donation</a>
                             </li>
@@ -35,7 +35,7 @@
 
                 <ul class="navbar-nav navbar-right">
 
-                    <c:if test="${empty logedUser}">
+                    <c:if test="${empty logedPatreon}">
                         <li class="nav-item">
                             <a href="/user/register" class="nav-link">
                                 Register
@@ -48,10 +48,10 @@
                         </li>
                     </c:if>
 
-                    <c:if test="${not empty logedUser}">
+                    <c:if test="${not empty logedPatreon}">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#myModal">
-                            Logout, ${logedUser.name}
+                            Logout, ${logedPatreon.name}
                         </button>
                     </c:if>
 

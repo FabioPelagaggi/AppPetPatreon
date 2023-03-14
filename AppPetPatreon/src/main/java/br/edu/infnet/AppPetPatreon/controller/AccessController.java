@@ -15,13 +15,13 @@ import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Controller
-@SessionAttributes("logedUser")
+@SessionAttributes("logedPatreon")
 public class AccessController {
 
-    Patreon logedUser = null;
+    Patreon logedPatreon = null;
 
     @Autowired
-    private PatreonService userService;
+    private PatreonService patreonService;
 
     @GetMapping(value = "/login")
     public String loginScreen() {
@@ -32,8 +32,8 @@ public class AccessController {
     public String logout(HttpSession session, SessionStatus status) {
 
         status.setComplete();
-        session.removeAttribute("logedUser");
-        logedUser = null;
+        session.removeAttribute("logedPatreon");
+        logedPatreon = null;
 
         return "redirect:/home";
     }
@@ -41,11 +41,11 @@ public class AccessController {
     @PostMapping(value = "/login")
     public String login(Model model, @RequestParam String email, @RequestParam String password) {
 
-        logedUser = userService.validate(email, password);
+        logedPatreon = patreonService.validate(email, password);
 
-        if (logedUser != null) {
+        if (logedPatreon != null) {
 
-            model.addAttribute("logedUser", logedUser);
+            model.addAttribute("logedPatreon", logedPatreon);
 
             return "redirect:/home";
         } else {

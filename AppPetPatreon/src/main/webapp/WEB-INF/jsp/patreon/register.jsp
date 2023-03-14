@@ -6,7 +6,7 @@
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
             <meta charset="ISO-8859-1">
-            <title>Register New User</title>
+            <title>Register New Patreon</title>
         </head>
 
         <body>
@@ -14,9 +14,9 @@
 
             <div class="d-flex justify-content-center">
                 <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
-                    <form action="/user/add" method="post">
+                    <form action="/patreon/add" method="post">
                         <div class="d-flex flex-column">
-                            <h2 class="mt-3 align-self-center">New User</h2>
+                            <h2 class="mt-3 align-self-center">New Patreon</h2>
 
                             <div class="form-group mb-3 mt-3">
                                 <label>Name:</label>

@@ -16,17 +16,17 @@ public class PatreonController {
     @Autowired
     private PatreonService patreonService;
 
-    @GetMapping(value = "/user/register")
+    @GetMapping(value = "/patreon/register")
     public String registerScreen() {
-        return "user/register";
+        return "patreon/register";
     }
 
-    @GetMapping(value = "/user/password")
+    @GetMapping(value = "/patreon/password")
     public String passwordScreen() {
         return "/";
     }
 
-    @PostMapping(value = "/user/add")
+    @PostMapping(value = "/patreon/add")
     public String add(Patreon patreon) {
 
         patreonService.add(patreon);
@@ -34,20 +34,20 @@ public class PatreonController {
         return "redirect:/home";
     }
 
-    @GetMapping(value = "/user/{id}/remove")
+    @GetMapping(value = "/patreon/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
         patreonService.remove(id);
 
-        return "redirect:/user/table";
+        return "redirect:/patreon/table";
     }
 
-    @GetMapping(value = "/user/table")
-    public String usersTableScreen(Model model) {
+    @GetMapping(value = "/patreon/table")
+    public String patreonsTableScreen(Model model) {
 
         model.addAttribute("patreons", patreonService.getPatreons());
 
-        return "user/table";
+        return "patreon/table";
     }
 
 }
