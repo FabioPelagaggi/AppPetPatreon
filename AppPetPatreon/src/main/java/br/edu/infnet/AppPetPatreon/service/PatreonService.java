@@ -27,8 +27,8 @@ public class PatreonService {
         patreonRepository.deleteById(id);
     }
 
-    public Optional<Patreon> get(Integer id) {
-        return patreonRepository.findById(id);
+    public Patreon get(Integer id) {
+        return patreonRepository.findById(id).get();
     }
 
     public List<Patreon> getPatreons() {

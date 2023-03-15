@@ -38,11 +38,20 @@
                                 <input type="text" name="phone" value="65683156613" class="form-control">
                             </div>
 
-                            <div>
+                            <div class="mb-3">
                                 <label>Administrator</label>
-                                <select class="form-select" name="admin">
+                                <select class="form-select " name="admin">
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-1">Agency</label>
+                                <select class="form-select" name="agencyId">
+                                    <c:forEach items="${agencies}" var="agency">
+                                        <option value="${agency.id}">${agency.name}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
 

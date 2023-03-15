@@ -23,8 +23,8 @@ public class AgencyService {
         agencyRepository.deleteById(id);
     }
 
-    public Optional<Agency> get(Integer id) {
-        return agencyRepository.findById(id);
+    public Agency get(Integer id) {
+        return agencyRepository.findById(id).get();
     }
 
     public List<Agency> getAgencies() {

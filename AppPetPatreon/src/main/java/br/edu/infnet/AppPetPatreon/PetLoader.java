@@ -6,6 +6,7 @@ import java.io.FileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Bird;
@@ -14,6 +15,7 @@ import br.edu.infnet.AppPetPatreon.model.domain.Horse;
 import br.edu.infnet.AppPetPatreon.model.methods.ConvertString;
 import br.edu.infnet.AppPetPatreon.service.PetService;
 
+@Order(3)
 @Component
 public class PetLoader implements ApplicationRunner {
 

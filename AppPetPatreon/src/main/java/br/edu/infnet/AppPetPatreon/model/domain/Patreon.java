@@ -1,18 +1,18 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 
 @Entity
-@Table(name = "patreondb")
+@Table(name = "patreon_db")
 public class Patreon {
 
     @Id
@@ -25,7 +25,9 @@ public class Patreon {
     private String phone;
     private String password;
     private boolean admin = false;
-    // private List<Agency> agencies;
+    @ManyToOne
+    @JoinColumn(name = "agency_id")
+    private Agency agency;
 
     public Patreon() {
     };
@@ -100,13 +102,13 @@ public class Patreon {
         return admin;
     };
 
-    // public void setAgencies(List<Agency> agencies) {
-    // this.agencies = agencies;
-    // };
+    public void setAgency(Agency agency) {
+        this.agency = agency;
+    };
 
-    // public List<Agency> getAgencies() {
-    // return agencies;
-    // };
+    public Agency getAgency() {
+        return agency;
+    };
 
     public String getName() {
         StringBuilder fullName = new StringBuilder();
@@ -168,8 +170,8 @@ public class Patreon {
         stringBuilder.append(this.password);
         stringBuilder.append(";");
         stringBuilder.append(this.admin);
-        // stringBuilder.append(";");
-        // stringBuilder.append(this.agencies);
+        stringBuilder.append(";");
+        stringBuilder.append(this.agency.getName());
         return stringBuilder.toString();
     };
 }

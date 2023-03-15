@@ -6,11 +6,14 @@ import java.io.FileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
+@Order(2)
 @Component
 public class PatreonLoader implements ApplicationRunner {
 
@@ -19,6 +22,10 @@ public class PatreonLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+
+        Agency agency = new Agency("Pet Patreon System", "admin@petpatreon.com");
+        agency.setId(1);
 
         String file = "textdata//Patreons.txt";
 
@@ -41,6 +48,8 @@ public class PatreonLoader implements ApplicationRunner {
                         if (fields[5].equalsIgnoreCase("true")) {
                             patreon.setAdmin(true);
                         }
+
+                        patreon.setAgency(agency);
 
                         System.out.println(patreon.toString());
 

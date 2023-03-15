@@ -1,15 +1,19 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 
 @Entity
-@Table(name = "agencydb")
+@Table(name = "agency_db")
 public class Agency {
 
     @Id
@@ -17,6 +21,9 @@ public class Agency {
     private Integer id;
     private String name;
     private String email;
+    @OneToMany
+    @JoinColumn(name = "agency_id")
+    private List<Patreon> patreons;
 
     public Agency() {
     }
@@ -50,6 +57,14 @@ public class Agency {
         this.email = email;
     }
 
+    public List<Patreon> getPatreons() {
+        return patreons;
+    }
+
+    public void setPatreons(List<Patreon> patreons) {
+        this.patreons = patreons;
+    }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(CONST.AGENCY_TAG);
@@ -59,6 +74,8 @@ public class Agency {
         stringBuilder.append(this.getName());
         stringBuilder.append(";");
         stringBuilder.append(this.email);
+        stringBuilder.append(";");
+        stringBuilder.append(this.patreons);
         return stringBuilder.toString();
     };
 }

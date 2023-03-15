@@ -54,6 +54,7 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Password</th>
                         <th scope="col">Admin</th>
+                        <th scope="col">Agency</th>                        
                         <th scope="col">Delete</th>
                       </tr>
                     </thead>
@@ -66,6 +67,9 @@
                           <td>${patreon.phone}</td>
                           <td>${patreon.password}</td>
                           <td>${patreon.admin}</td>
+                          <c:if test="${patreon.agency != null}">
+                            <td>${patreon.agency.name}</td>
+                          </c:if>
                           <td>
                             <a href="/patreon/${patreon.id}/remove">
                               <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>

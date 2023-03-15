@@ -6,11 +6,13 @@ import java.io.FileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.service.AgencyService;
 
+@Order(1)
 @Component
 public class AgencyLoader implements ApplicationRunner {
 
@@ -19,6 +21,11 @@ public class AgencyLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        Agency agencyPetPatreon = new Agency("Pet Patreon System", "admin@petpatreon.com");
+        agencyPetPatreon.setId(1);
+
+        agencyService.add(agencyPetPatreon);
 
         String file = "textdata//Agencies.txt";
 
@@ -60,6 +67,6 @@ public class AgencyLoader implements ApplicationRunner {
             System.out.println("[ERROR] - " + e.getMessage());
         }
 
-        System.out.println("Agencys Loaded");
+        System.out.println("Agencies Loaded");
     }
 }

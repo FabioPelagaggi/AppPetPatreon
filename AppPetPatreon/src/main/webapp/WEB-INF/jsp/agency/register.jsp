@@ -20,12 +20,12 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label>Name:</label>
-                                <input type="text" name="name" value="SOS Pets" class="form-control">
+                                <input type="text" name="name" value="Animals Rescue" class="form-control">
                             </div>
 
                             <div class="form-group mb-3">
                                 <label>E-mail:</label>
-                                <input type="email" name="email" value="sospets@gmail.com" class="form-control">
+                                <input type="email" name="email" value="arescue@gmail.com" class="form-control">
                             </div>
 
                             <button type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
