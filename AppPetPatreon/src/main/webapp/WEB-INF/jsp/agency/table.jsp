@@ -51,6 +51,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Members Qty.</th>
                         <th scope="col">Delete</th>
                       </tr>
                     </thead>
@@ -60,6 +61,7 @@
                           <th scope="row">${agency.id}</th>
                           <td>${agency.name}</td>
                           <td>${agency.email}</td>
+                          <td>${agency.patreons.size()}</td>
                           <td>
                             <a href="/agency/${agency.id}/remove">
                               <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
