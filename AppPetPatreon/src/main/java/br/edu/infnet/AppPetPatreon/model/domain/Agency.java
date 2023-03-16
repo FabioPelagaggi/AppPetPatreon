@@ -1,5 +1,6 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Agency {
     private String email;
     @OneToMany
     @JoinColumn(name = "agency_id")
-    private List<Patreon> patreons;
+    private List<Patreon> patreons = new ArrayList<Patreon>();
 
     public Agency() {
     }
@@ -61,8 +62,8 @@ public class Agency {
         return patreons;
     }
 
-    public void setPatreons(List<Patreon> patreons) {
-        this.patreons = patreons;
+    public void addPatreon(Patreon patreons) {
+        this.patreons.add(patreons);
     }
 
     public String toString() {

@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
+import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.AgencyService;
 
 @Controller
@@ -22,7 +24,9 @@ public class AgencyController {
     }
 
     @PostMapping(value = "/agency/add")
-    public String add(Agency agency) {
+    public String add(Agency agency, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        agency.addPatreon(logedPatreon);
 
         agencyService.add(agency);
 
