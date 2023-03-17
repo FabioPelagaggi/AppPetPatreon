@@ -57,7 +57,7 @@
                     <c:if test="${not empty logedPatreon}">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                             data-bs-target="#myModal">
-                            Logout, ${logedPatreon.name}
+                            Logout, ${logedPatreon.name} [ ${logedPatreon.agency.name} ]
                         </button>
                     </c:if>
 
