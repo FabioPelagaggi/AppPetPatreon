@@ -28,12 +28,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/pet/table">Pets Table</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/donation/register">Make Donation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/donation/table">Donations Table</a>
+                        </li>
                     </c:if>
 
                     <c:if test="${not empty logedPatreon}">
                         <c:if test="${not logedPatreon.admin}">
                             <li class="nav-item">
-                                <a class="nav-link" href="/donation">Make Donation</a>
+                                <a class="nav-link" href="/donation/register">Make Donation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/donation/table">Donations Table</a>
                             </li>
                         </c:if>
                     </c:if>
@@ -56,7 +65,7 @@
 
                     <c:if test="${not empty logedPatreon}">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#myModal">
+                            data-bs-target="#logoutModal">
                             Logout, ${logedPatreon.name} [ ${logedPatreon.agency.name} ]
                         </button>
                     </c:if>

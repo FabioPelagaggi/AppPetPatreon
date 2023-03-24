@@ -10,8 +10,10 @@
         </head>
 
         <body>
-            <c:import url="/WEB-INF/jsp/navbar.jsp" />
+            <c:import url="/WEB-INF/jsp/modal.jsp" />
             
+            <c:import url="/WEB-INF/jsp/navbar.jsp" />
+
             <div class="d-flex justify-content-center">
                 <div class="shadow p-3 mb-5 bg-white container card card-block w-50 m-5">
                     <form action="/pet/addHorse" method="post">
@@ -69,7 +71,6 @@
                                 </div>
 
                                 <button type="submit" class="align-self-center btn btn-primary">Confirm</button>
-
                         </div>
                     </form>
                 </div>

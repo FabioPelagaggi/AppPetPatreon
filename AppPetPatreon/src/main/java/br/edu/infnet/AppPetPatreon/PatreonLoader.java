@@ -23,7 +23,6 @@ public class PatreonLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-
         Agency agency = new Agency("Pet Patreon System", "admin@petpatreon.com");
         agency.setId(1);
 

@@ -1,11 +1,14 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.edu.infnet.AppPetPatreon.constants.CONST;
@@ -28,6 +31,9 @@ public class Patreon {
     @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
+    @OneToMany
+    @JoinColumn(name = "donation_id")
+    private List<Donation> donations;
 
     public Patreon() {
     };
@@ -108,6 +114,14 @@ public class Patreon {
 
     public Agency getAgency() {
         return agency;
+    };
+
+    public void setDonations(List<Donation> donations) {
+        this.donations = donations;
+    };
+
+    public List<Donation> getDonations() {
+        return donations;
     };
 
     public String getName() {

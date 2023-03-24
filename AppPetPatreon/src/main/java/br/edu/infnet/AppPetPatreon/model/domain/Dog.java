@@ -1,8 +1,13 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidSize;
 
+@Entity
+@Table(name = "dog_db")
 public class Dog extends Pet {
 
     private String breed;
@@ -10,6 +15,9 @@ public class Dog extends Pet {
     private boolean castrated;
     private float bathCost;
     private float toysCost;
+
+    public Dog(){
+    }
 
     public Dog(String name, String animalType, int age, String gender, float foodCost, String breed, String size,
             boolean castrated, float bathCost, float toysCost) throws Exception {
@@ -25,17 +33,41 @@ public class Dog extends Pet {
 
         this.size = size;
     }
+    
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
 
     public String getBreed() {
         return breed;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public String getSize() {
         return size;
     }
 
+    public void setCastrated(boolean castrated) {
+        this.castrated = castrated;
+    }
+
+    public boolean getCastrated() {
+        return castrated;
+    }
+
+    public void setBathCost(float bathCost) {
+        this.bathCost = bathCost;
+    }
+
     public float getBathCost() {
         return bathCost;
+    }
+
+    public void setToysCost(float toysCost) {
+        this.toysCost = toysCost;
     }
 
     public float getToysCost() {

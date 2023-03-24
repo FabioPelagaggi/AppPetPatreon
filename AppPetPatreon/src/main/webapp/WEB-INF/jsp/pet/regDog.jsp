@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <c:import url="/WEB-INF/jsp/modal.jsp" />
+    
     <c:import url="/WEB-INF/jsp/navbar.jsp" />
     
     <div class="d-flex justify-content-center">

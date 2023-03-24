@@ -12,6 +12,8 @@
     </head>
 
     <body>
+      <c:import url="/WEB-INF/jsp/modal.jsp" />
+      
       <c:import url="/WEB-INF/jsp/navbar.jsp" />
       
       <div class="d-flex justify-content-center">
@@ -72,7 +74,7 @@
                           </c:if>
                           <td>
                             <a href="/patreon/${patreon.id}/remove">
-                              <i class="fa fa-trash-o" style="font-size:24px;color:red"></i>
+                              <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
                             </a>
                           </td>
                         </tr>

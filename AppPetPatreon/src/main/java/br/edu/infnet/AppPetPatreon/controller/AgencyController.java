@@ -30,6 +30,8 @@ public class AgencyController {
 
         agencyService.add(agency);
 
+        logedPatreon.setAgency(agency);
+
         return "redirect:/agency/table";
     }
 

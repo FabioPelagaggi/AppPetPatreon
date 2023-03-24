@@ -1,13 +1,21 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidSize;
 
+@Entity
+@Table(name = "bird_db")
 public class Bird extends Pet {
 
     private String size;
     private float hayCost;
     private float toysCost;
+
+    public Bird(){
+    }
 
     public Bird(String name, String animalType, int age, String gender, float foodCost, String size, float hayCost,
             float toysCost) throws Exception {
@@ -22,12 +30,24 @@ public class Bird extends Pet {
         this.size = size;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
     public String getSize() {
         return size;
     }
 
+    public void setHayCost(float hayCost) {
+        this.hayCost = hayCost;
+    }
+
     public float getHayCost() {
         return hayCost;
+    }
+
+    public void setToysCost(float toysCost) {
+        this.toysCost = toysCost;
     }
 
     public float getToysCost() {

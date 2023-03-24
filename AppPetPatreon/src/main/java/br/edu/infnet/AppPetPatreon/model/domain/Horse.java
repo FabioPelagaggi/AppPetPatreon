@@ -1,13 +1,21 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.AppPetPatreon.constants.CONST;
 
+@Entity
+@Table(name = "horse_db")
 public class Horse extends Pet {
 
     private String breed;
     private float hayCost;
     private float saltCost;
     private float vetCost;
+
+    public Horse(){
+    }
 
     public Horse(String name, String animalType, int age, String gender, float foodCost, String breed, float hayCost,
             float saltCost, float vetCost) throws Exception {
@@ -18,16 +26,32 @@ public class Horse extends Pet {
         this.vetCost = vetCost;
     }
 
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
     public String getBreed() {
         return breed;
+    }   
+
+    public void setHayCost(float hayCost) {
+        this.hayCost = hayCost;
     }
 
     public float getHayCost() {
         return hayCost;
     }
 
+    public void setSaltCost(float saltCost) {
+        this.saltCost = saltCost;
+    }
+
     public float getSaltCost() {
         return saltCost;
+    }
+
+    public void setVetCost(float vetCost) {
+        this.vetCost = vetCost;
     }
 
     public float getVetCost() {

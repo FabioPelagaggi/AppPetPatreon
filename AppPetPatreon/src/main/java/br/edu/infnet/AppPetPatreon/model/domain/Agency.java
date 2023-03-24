@@ -25,6 +25,9 @@ public class Agency {
     @OneToMany
     @JoinColumn(name = "agency_id")
     private List<Patreon> patreons = new ArrayList<Patreon>();
+    @OneToMany
+    @JoinColumn(name = "agency_id")
+    private List<Pet> pets = new ArrayList<Pet>();
 
     public Agency() {
     }
@@ -60,6 +63,18 @@ public class Agency {
 
     public List<Patreon> getPatreons() {
         return patreons;
+    }
+
+    public void setPatreons(List<Patreon> patreons) {
+        this.patreons = patreons;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 
     public void addPatreon(Patreon patreons) {

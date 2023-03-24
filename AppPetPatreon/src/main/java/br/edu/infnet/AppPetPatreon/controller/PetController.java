@@ -6,8 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
-import br.edu.infnet.AppPetPatreon.repository.PetRepository;
+import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.PetService;
 
 @Controller
@@ -45,14 +46,9 @@ public class PetController {
     }
 
     @GetMapping(value = "/pet/table")
-    public String petsTableScreen(Model model) {
+    public String petsTableScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
-        model.addAttribute("pets", petService.getPets());
-        model.addAttribute("addedPet", PetRepository.addedPet);
-        model.addAttribute("removedPet", PetRepository.removedPet);
-
-        PetRepository.addedPet = null;
-        PetRepository.removedPet = null;
+        model.addAttribute("pets", petService.getPets(logedPatreon.getAgency()));
 
         return "pet/table";
     }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.AgencyService;
@@ -52,9 +53,9 @@ public class PatreonController {
     }
 
     @GetMapping(value = "/patreon/table")
-    public String patreonsTableScreen(Model model) {
+    public String patreonsTableScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
-        model.addAttribute("patreons", patreonService.getPatreons());
+        model.addAttribute("patreons", patreonService.getPatreons(logedPatreon.getAgency()));
 
         return "patreon/table";
     }
