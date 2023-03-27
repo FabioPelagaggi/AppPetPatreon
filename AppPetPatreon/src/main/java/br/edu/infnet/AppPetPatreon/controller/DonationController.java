@@ -34,12 +34,11 @@ public class DonationController {
     }
 
     @PostMapping(value = "/donation/add")
-    public String add(Donation donation, @RequestParam Integer petId, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+    public String add(Donation donation, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
         donation.setPatreon(logedPatreon);
         donation.setAgency(logedPatreon.getAgency());
         donation.setDateTime(LocalDateTime.now());
-        donation.addPet(petService.get(petId));
         donationService.add(donation);
 
         return "redirect:/donation/table";

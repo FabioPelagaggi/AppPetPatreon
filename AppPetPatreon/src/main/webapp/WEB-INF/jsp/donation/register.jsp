@@ -25,15 +25,37 @@
                                 <input type="number" name="donationAmount" value="1000" class="form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label class="mb-1">Pet</label>
-                                <select class="form-select" name="petId">
+                            <label class="mb-2">Pets:</label>
+                            <c:if test="${not empty pets}">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Select</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Animal Type</th>
+                                        <th scope="col">Monthly Cost (R$)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                     <c:forEach items="${pets}" var="pet">
-                                        <option value="${pet.id}">${pet.name}</option>
+                                        <tr>
+                                        <td class="ms-3">
+                                            <input class="ms-3" type="checkbox" name="pets" value="${pet.id}">
+                                        </td>
+                                        <td scope="row">${pet.id}</td>
+                                        <td>${pet.name}</td>
+                                        <td>${pet.animalType}</td>
+                                        <td>${pet.calcMonthlyCost()}</td>
+                                        </tr>
                                     </c:forEach>
-                                </select>
-                            </div>
-
+                                    </tbody>
+                                </table>
+                            </c:if>
+                            <c:if test="${empty pets}">
+                                <p class="text-center">No pets registered</p>
+                            </c:if>
+                           
                             <button type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
                         </div>
                     </form>
