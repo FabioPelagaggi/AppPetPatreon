@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.edu.infnet.AppPetPatreon.constants.CONST;
@@ -34,6 +35,10 @@ public class Patreon {
     @OneToMany
     @JoinColumn(name = "donation_id")
     private List<Donation> donations;
+    private String cep;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     public Patreon() {
     };
@@ -123,6 +128,23 @@ public class Patreon {
     public List<Donation> getDonations() {
         return donations;
     };
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    };
+    
+    public String getCep() {
+        return cep;
+    };
+
+    public void setAddress(Address address) {
+        this.address = address;
+    };
+
+    public Address getAddress() {
+        return address;
+    };   
+
 
     public String getName() {
         StringBuilder fullName = new StringBuilder();

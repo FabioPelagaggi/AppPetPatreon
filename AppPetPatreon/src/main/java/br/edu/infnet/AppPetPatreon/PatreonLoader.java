@@ -9,8 +9,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.AppPetPatreon.model.domain.Address;
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
+import br.edu.infnet.AppPetPatreon.model.methods.AddressAPI;
 import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Order(2)
@@ -49,6 +51,10 @@ public class PatreonLoader implements ApplicationRunner {
                         }
 
                         patreon.setAgency(agency);
+                        patreon.setCep("88010400");
+
+                        Address address = AddressAPI.requestAddress(patreon.getCep());
+                        patreon.setAddress(address);
 
                         System.out.println(patreon.toString());
 

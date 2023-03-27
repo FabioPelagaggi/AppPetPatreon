@@ -48,6 +48,11 @@
                                 </select>
                             </div>
 
+                            <div class="form-group mb-3">
+                                <label>CEP:</label>
+                                <input type="text" name="cep" value="88010400" class="form-control">
+                            </div>
+
                             <div class="mb-3">
                                 <label class="mb-1">Agency</label>
                                 <select class="form-select" name="agencyId">

@@ -56,7 +56,10 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Password</th>
                         <th scope="col">Admin</th>
-                        <th scope="col">Agency</th>                        
+                        <th scope="col">Agency</th> 
+                        <th scope="col">CEP</th>
+                        <th scope="col">Logradouro</th>
+                        <th scope="col">UF</th>                       
                         <th scope="col">Delete</th>
                       </tr>
                     </thead>
@@ -72,6 +75,9 @@
                           <c:if test="${patreon.agency != null}">
                             <td>${patreon.agency.name}</td>
                           </c:if>
+                          <td>${patreon.address.cep}</td>
+                          <td>${patreon.address.logradouro}</td>
+                          <td>${patreon.address.uf}</td>
                           <td>
                             <a href="/patreon/${patreon.id}/remove">
                               <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>

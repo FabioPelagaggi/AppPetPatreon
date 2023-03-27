@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.AppPetPatreon.model.domain.Address;
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
+import br.edu.infnet.AppPetPatreon.model.methods.AddressAPI;
+import br.edu.infnet.AppPetPatreon.repository.AddressRepository;
 import br.edu.infnet.AppPetPatreon.repository.PatreonRepository;
 
 @Service
@@ -16,7 +19,15 @@ public class PatreonService {
     @Autowired
     private PatreonRepository patreonRepository;
 
+    @Autowired
+    private AddressRepository addressRepository;
+
     public Patreon add(Patreon patreon) {
+        Address address = AddressAPI.requestAddress(patreon.getCep());
+        patreon.setAddress(address);
+
+        addressRepository.save(address);
+
         return patreonRepository.save(patreon);
     }
 
