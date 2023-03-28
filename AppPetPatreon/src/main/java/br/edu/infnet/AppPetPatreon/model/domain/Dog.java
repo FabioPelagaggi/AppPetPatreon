@@ -126,4 +126,10 @@ public class Dog extends Pet {
         stringBuilder.append(calcMonthlyCost());
         return stringBuilder.toString();
     }
+
+    @Override
+    public int compareTo(Pet arg0) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    }
 }

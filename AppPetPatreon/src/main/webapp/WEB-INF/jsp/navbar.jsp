@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -38,6 +38,15 @@
 
                     <c:if test="${not empty logedPatreon}">
                         <c:if test="${not logedPatreon.admin}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/patreon/table">Patreons Table</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/agency/table">Agencies Table</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pet/table">Pets Table</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/donation/register">Make Donation</a>
                             </li>

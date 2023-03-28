@@ -1,7 +1,9 @@
 package br.edu.infnet.AppPetPatreon.model.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,9 +34,8 @@ public class Patreon {
     @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
-    @OneToMany
-    @JoinColumn(name = "donation_id")
-    private List<Donation> donations;
+    @OneToMany(mappedBy = "patreon")
+    private List<Donation> donations = new ArrayList<>();
     private String cep;
     @OneToOne
     @JoinColumn(name = "address_id")
@@ -129,6 +130,10 @@ public class Patreon {
         return donations;
     };
 
+    public void addDonation(Donation donation) {
+        this.donations.add(donation);
+    };
+
     public void setCep(String cep) {
         this.cep = cep;
     };
@@ -208,6 +213,10 @@ public class Patreon {
         stringBuilder.append(this.admin);
         stringBuilder.append(";");
         stringBuilder.append(this.agency.getName());
+        stringBuilder.append(";");
+        stringBuilder.append(this.donations);
+        stringBuilder.append(";");
+        stringBuilder.append(this.cep);
         return stringBuilder.toString();
     };
 }

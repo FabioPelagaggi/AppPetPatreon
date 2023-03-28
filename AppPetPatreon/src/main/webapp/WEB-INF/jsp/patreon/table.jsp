@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <!DOCTYPE html>
@@ -7,7 +7,7 @@
     <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <meta charset="ISO-8859-1">
+      <meta charset="UTF-8">
       <title>Patreon Data Table</title>
     </head>
 
@@ -59,8 +59,11 @@
                         <th scope="col">Agency</th> 
                         <th scope="col">CEP</th>
                         <th scope="col">Logradouro</th>
-                        <th scope="col">UF</th>                       
-                        <th scope="col">Delete</th>
+                        <th scope="col">UF</th>
+                        <th scope="col">Donations Qty.</th>
+                        <c:if test="${logedPatreon.admin}">
+                          <th scope="col">Delete</th>
+                        </c:if>                   
                       </tr>
                     </thead>
                     <tbody>
@@ -78,11 +81,14 @@
                           <td>${patreon.address.cep}</td>
                           <td>${patreon.address.logradouro}</td>
                           <td>${patreon.address.uf}</td>
-                          <td>
-                            <a href="/patreon/${patreon.id}/remove">
-                              <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
-                            </a>
-                          </td>
+                          <td>${patreon.donations.size()}</td>
+                          <c:if test="${logedPatreon.admin}">
+                            <td>
+                              <a href="/patreon/${patreon.id}/remove">
+                                <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
+                              </a>
+                            </td>
+                          </c:if>
                         </tr>
                       </c:forEach>
                     </tbody>

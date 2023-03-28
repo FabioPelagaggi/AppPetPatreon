@@ -1,10 +1,13 @@
 package br.edu.infnet.AppPetPatreon.service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Order.Direction;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Pet;
@@ -43,6 +46,8 @@ public class PetService {
                 petsAgency.add(pet);
             }
         }
+
+        petsAgency.sort(Comparator.comparingDouble(Pet::calcMonthlyCost).reversed());
 
         return petsAgency;
     }

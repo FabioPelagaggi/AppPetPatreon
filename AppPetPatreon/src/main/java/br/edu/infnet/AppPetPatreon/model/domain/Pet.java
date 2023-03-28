@@ -19,7 +19,7 @@ import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 @Entity
 @Table(name = "pet_db")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pet {
+public abstract class Pet implements Comparable<Pet>  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,6 +126,11 @@ public abstract class Pet {
         stringBuilder.append(gender);
         stringBuilder.append(";");
         stringBuilder.append(foodCost);
+        stringBuilder.append(";");
+        stringBuilder.append(agency);
+        stringBuilder.append(";");
+        stringBuilder.append(donations);
+        stringBuilder.append(";");
         return stringBuilder.toString();
     }
 }
