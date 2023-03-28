@@ -5,6 +5,7 @@
 
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
             <meta charset="UTF-8">
             <title>Register New Donation</title>
         </head>
@@ -14,8 +15,16 @@
 
             <c:import url="/WEB-INF/jsp/navbar.jsp" />
 
+            <c:set var="buttonStatus" value="enabled" />
+
             <div class="d-flex justify-content-center">
                 <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
+                    <c:if test="${empty pets}">
+                        <c:set var="buttonStatus" value="disabled" />
+                        <div class="alert alert-danger">
+                            No pets registered!
+                        </div>
+                    </c:if>
                     <form action="/donation/add" method="post">
                         <div class="d-flex flex-column">
                             <h2 class="mt-3 align-self-center">New Donation</h2>
@@ -24,9 +33,9 @@
                                 <label>Donation Amount:</label>
                                 <input type="number" name="donationAmount" value="1000" class="form-control">
                             </div>
-
-                            <label class="mb-2">Pets:</label>
                             <c:if test="${not empty pets}">
+                                <label class="mb-2">Pets:</label>
+                            
                                 <table class="table">
                                     <thead class="thead-dark">
                                     <tr>
@@ -52,11 +61,8 @@
                                     </tbody>
                                 </table>
                             </c:if>
-                            <c:if test="${empty pets}">
-                                <p class="text-center">No pets registered</p>
-                            </c:if>
                            
-                            <button type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
+                            <button ${buttonStatus} type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
                         </div>
                     </form>
                 </div>

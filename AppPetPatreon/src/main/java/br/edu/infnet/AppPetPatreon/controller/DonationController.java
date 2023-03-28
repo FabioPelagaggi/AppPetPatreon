@@ -23,6 +23,9 @@ public class DonationController {
 
     @Autowired
     private PetService petService;
+    
+    String message = "";
+    String messageError = "";
 
     @GetMapping(value = "/donation/register")
     public String registerScreen(Model model) {
@@ -40,13 +43,21 @@ public class DonationController {
         donation.setDateTime(LocalDateTime.now());
         donationService.add(donation);
 
+        message = "Donation of " + donation.getDonationAmount() + " was made.";
+
         return "redirect:/donation/table";
     }
 
     @GetMapping(value = "/donation/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
-        donationService.remove(id);
+        try{
+            message = "Donation " + donationService.get(id).getDonationAmount() + " was removed.";
+            donationService.remove(id);
+        } catch (Exception e) {
+            message = "";
+            messageError = "Donation " + donationService.get(id).getDonationAmount() + " can't be removed.";
+        }
 
         return "redirect:/donation/table";
     }
@@ -55,6 +66,11 @@ public class DonationController {
     public String petsTableScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
         model.addAttribute("donations", donationService.getDonations(logedPatreon));
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
 
         return "donation/table";
     }

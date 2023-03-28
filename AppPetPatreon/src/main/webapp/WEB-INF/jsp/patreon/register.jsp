@@ -5,17 +5,26 @@
 
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
             <meta charset="UTF-8">
             <title>Register New Patreon</title>
         </head>
 
         <body>
             <c:import url="/WEB-INF/jsp/modal.jsp" />
-            
+
             <c:import url="/WEB-INF/jsp/navbar.jsp" />
+
+            <c:set var="buttonStatus" value="enabled" />
 
             <div class="d-flex justify-content-center">
                 <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
+                    <c:if test="${empty agencies}">
+                        <c:set var="buttonStatus" value="disabled" />
+                        <div class="alert alert-danger">
+                            No agencies registered!
+                        </div>
+                    </c:if>
                     <form action="/patreon/add" method="post">
                         <div class="d-flex flex-column">
                             <h2 class="mt-3 align-self-center">New Patreon</h2>
@@ -54,15 +63,17 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="mb-1">Agency</label>
-                                <select class="form-select" name="agencyId">
-                                    <c:forEach items="${agencies}" var="agency">
-                                        <option value="${agency.id}">${agency.name}</option>
-                                    </c:forEach>
-                                </select>
+                                <c:if test="${not empty agencies}">
+                                    <label class="mb-1">Agency</label>
+                                    <select class="form-select" name="agencyId">
+                                        <c:forEach items="${agencies}" var="agency">
+                                            <option value="${agency.id}">${agency.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </c:if>
                             </div>
 
-                            <button type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
+                            <button ${buttonStatus} type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
                         </div>
                     </form>
                 </div>

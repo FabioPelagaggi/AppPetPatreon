@@ -30,8 +30,11 @@
             <img height="120" width="" x="30" y="40" src="https://fabio.pelagaggi.com/assets/images/perfil.png"></image>
             <h5 class="m-5">Fábio Rodrigues Pelagaggi Nunes</h5>
             <ul class="nav nav-pills flex-column">
-              <li class="nav-item">
+              <li class="nav-item m-1">
                 <a class="nav-link active" href="https://fabio.pelagaggi.com/">Portifolio</a>
+              </li>
+              <li class="nav-item m-1">
+                <a class="nav-link active" href="https://github.com/FabioPelagaggi?tab=repositories">GitHub</a>
               </li>
             </ul>
           </div>

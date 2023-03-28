@@ -18,6 +18,9 @@ public class AgencyController {
     @Autowired
     private AgencyService agencyService;
 
+    String message = "";
+    String messageError = "";
+
     @GetMapping(value = "/agency/register")
     public String registerScreen() {
         return "agency/register";
@@ -32,13 +35,21 @@ public class AgencyController {
 
         logedPatreon.setAgency(agency);
 
+        message = "Agency " + agency.getName() + " was added.";
+
         return "redirect:/agency/table";
     }
 
     @GetMapping(value = "/agency/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
-        agencyService.remove(id);
+        try {
+            message = "Agency " + agencyService.get(id).getName() + " was removed.";
+            agencyService.remove(id);
+        } catch (Exception e) {
+            message = "";
+            messageError = "Agency " + agencyService.get(id).getName() + " can't be removed.";
+        }
 
         return "redirect:/agency/table";
     }
@@ -47,6 +58,11 @@ public class AgencyController {
     public String agencysTableScreen(Model model) {
 
         model.addAttribute("agencies", agencyService.getAgencies());
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
 
         return "agency/table";
     }

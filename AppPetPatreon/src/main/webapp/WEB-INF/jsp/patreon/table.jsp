@@ -7,6 +7,7 @@
     <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
       <meta charset="UTF-8">
       <title>Patreon Data Table</title>
     </head>
@@ -19,15 +20,15 @@
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
 
-          <c:if test="${not empty addedPatreon}">
+          <c:if test="${not empty message}">
             <div class="alert alert-success">
-              <strong>Success!</strong> New Patreon ${addedPatreon.name} was registred.
+              <strong>Success!</strong> ${message}
             </div>
           </c:if>
 
-          <c:if test="${not empty removedPatreon}">
-            <div class="alert alert-success">
-              <strong>Success!</strong> Patreon ${removedPatreon.name} was removed.
+          <c:if test="${not empty messageError}">
+            <div class="alert alert-danger">
+              <strong>Error!</strong> ${messageError}
             </div>
           </c:if>
 
@@ -48,6 +49,7 @@
                     <h5 class="m-3 align-self-center">Patreons # ${patreons.size()}</h5>
                   </div>
                   <table class="table">
+                   
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
@@ -56,11 +58,11 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Password</th>
                         <th scope="col">Admin</th>
-                        <th scope="col">Agency</th> 
+                        <th scope="col">Agency</th>
                         <th scope="col">CEP</th>
                         <th scope="col">Logradouro</th>
                         <th scope="col">UF</th>
-                        <th scope="col">Donations Qty.</th>
+                        <th scope="col">Donations</th>
                         <c:if test="${logedPatreon.admin}">
                           <th scope="col">Delete</th>
                         </c:if>                   
@@ -75,23 +77,29 @@
                           <td>${patreon.phone}</td>
                           <td>${patreon.password}</td>
                           <td>${patreon.admin}</td>
-                          <c:if test="${patreon.agency != null}">
-                            <td>${patreon.agency.name}</td>
-                          </c:if>
+                          <td>${patreon.agency.name}</td>
                           <td>${patreon.address.cep}</td>
                           <td>${patreon.address.logradouro}</td>
                           <td>${patreon.address.uf}</td>
                           <td>${patreon.donations.size()}</td>
                           <c:if test="${logedPatreon.admin}">
-                            <td>
-                              <a href="/patreon/${patreon.id}/remove">
-                                <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
-                              </a>
-                            </td>
+                            <c:if test="${patreon.name != logedPatreon.name}">
+                              <td>
+                                <a href="/patreon/${patreon.id}/remove">
+                                  <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
+                                </a>
+                              </td>
+                            </c:if>
+                            <c:if test="${patreon.name == logedPatreon.name}">
+                              <td>
+                                  <i class="fa fa-trash-o ms-3" style="font-size:24px;color:gray"></i>
+                              </td>
+                            </c:if>
                           </c:if>
                         </tr>
                       </c:forEach>
                     </tbody>
+
                   </table>
                 </div>
               </c:if>

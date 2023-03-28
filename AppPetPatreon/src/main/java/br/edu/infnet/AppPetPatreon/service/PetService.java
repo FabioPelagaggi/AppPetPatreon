@@ -7,8 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order.Direction;
-
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 import br.edu.infnet.AppPetPatreon.repository.PetRepository;
@@ -32,7 +30,9 @@ public class PetService {
     }
 
     public List<Pet> getPets() {
-        return (List<Pet>) petRepository.findAll();
+        List<Pet> pets = (List<Pet>) petRepository.findAll();
+        pets.sort(Comparator.comparingDouble(Pet::calcMonthlyCost).reversed());
+        return pets;
     }
 
     

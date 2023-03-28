@@ -22,11 +22,14 @@ public class PatreonController {
     @Autowired
     private AgencyService agencyService;
 
+    String message = "";
+    String messageError = "";
+
     @GetMapping(value = "/patreon/register")
     public String registerScreen(Model model) {
 
         model.addAttribute("agencies", agencyService.getAgencies());
-        
+
         return "patreon/register";
     }
 
@@ -41,13 +44,21 @@ public class PatreonController {
         patreon.setAgency(agencyService.get(agencyId));
         patreonService.add(patreon);
 
+        message = "Patreon " + patreon.getName() + " was added.";
+
         return "redirect:/home";
     }
 
     @GetMapping(value = "/patreon/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
-        patreonService.remove(id);
+        try{
+            message = "Patreon " + patreonService.get(id).getName() + " was removed.";
+            patreonService.remove(id);
+        } catch (Exception e) {
+            message = "";
+            messageError = "Patreon " + patreonService.get(id).getName() + " can't be removed.";
+        }
 
         return "redirect:/patreon/table";
     }
@@ -56,6 +67,11 @@ public class PatreonController {
     public String patreonsTableScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
         model.addAttribute("patreons", patreonService.getPatreons(logedPatreon.getAgency()));
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
 
         return "patreon/table";
     }

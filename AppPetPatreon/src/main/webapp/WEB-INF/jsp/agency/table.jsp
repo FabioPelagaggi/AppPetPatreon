@@ -7,6 +7,7 @@
     <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
       <meta charset="UTF-8">
       <title>Agency Data Table</title>
     </head>
@@ -19,15 +20,15 @@
       <div class="d-flex justify-content-center">
         <div class="shadow p-3 mb-5 bg-white container card card-block w-auto m-5">
 
-          <c:if test="${not empty addedAgency}">
+          <c:if test="${not empty message}">
             <div class="alert alert-success">
-              <strong>Success!</strong> New Agency ${addedAgency.name} was registred.
+              <strong>Success!</strong> ${message}
             </div>
           </c:if>
 
-          <c:if test="${not empty removedAgency}">
-            <div class="alert alert-success">
-              <strong>Success!</strong> Agency ${removedAgency.name} was removed.
+          <c:if test="${not empty messageError}">
+            <div class="alert alert-danger">
+              <strong>Error!</strong> ${messageError}
             </div>
           </c:if>
 

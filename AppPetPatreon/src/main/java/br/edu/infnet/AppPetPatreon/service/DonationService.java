@@ -2,7 +2,6 @@ package br.edu.infnet.AppPetPatreon.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import br.edu.infnet.AppPetPatreon.model.domain.Donation;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.repository.DonationRepository;
-import br.edu.infnet.AppPetPatreon.repository.PatreonRepository;
 
 @Service
 public class DonationService {
@@ -18,17 +16,7 @@ public class DonationService {
     @Autowired
     private DonationRepository donationRepository;
 
-    // @Autowired
-    // private PatreonRepository patreonRepository;
-
     public Donation add(Donation donation) {
-
-        // Optional<Patreon> optionalPatreon = patreonRepository.findById(donation.getPatreon().getId());
-        // Patreon patreon = optionalPatreon.get();
-
-        // patreon.addDonation(donation);
-        // patreonRepository.save(patreon);
-
         return donationRepository.save(donation);
     }
 

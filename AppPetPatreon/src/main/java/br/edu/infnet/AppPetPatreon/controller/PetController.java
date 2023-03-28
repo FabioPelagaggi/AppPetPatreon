@@ -17,6 +17,9 @@ public class PetController {
     @Autowired
     private PetService petService;
 
+    String message = "";
+    String messageError = "";
+
     @GetMapping(value = "/pet")
     public String registerScreen() {
         return "pet/register";
@@ -40,7 +43,13 @@ public class PetController {
     @GetMapping(value = "/pet/{id}/remove")
     public String remove(@PathVariable Integer id) {
 
-        petService.remove(id);
+        try{
+            message = "Pet " + petService.get(id).getName() + " was removed.";
+            petService.remove(id);
+        } catch (Exception e) {
+            message = "";
+            messageError = "Pet " + petService.get(id).getName() + " can't be removed.";
+        }
 
         return "redirect:/pet/table";
     }
@@ -48,7 +57,12 @@ public class PetController {
     @GetMapping(value = "/pet/table")
     public String petsTableScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
-        model.addAttribute("pets", petService.getPets(logedPatreon.getAgency()));
+        model.addAttribute("pets", petService.getPets());
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
 
         return "pet/table";
     }
