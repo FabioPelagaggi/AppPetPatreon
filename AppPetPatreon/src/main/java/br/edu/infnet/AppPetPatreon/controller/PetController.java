@@ -67,4 +67,56 @@ public class PetController {
         return "pet/table";
     }
 
+    @GetMapping(value = "/pet/tableAgency")
+    public String petsTableAgencyScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        model.addAttribute("pets", petService.getPets(logedPatreon.getAgency()));
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
+
+        return "pet/table";
+    }
+
+    @GetMapping(value = "/pet/tableDog")
+    public String petsTableDogScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        model.addAttribute("pets", petService.getDogs());
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
+
+        return "pet/tableDog";
+    }
+
+    @GetMapping(value = "/pet/tableBird")
+    public String petsTableBirdScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        model.addAttribute("pets", petService.getBirds());
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
+
+        return "pet/tableBird";
+    }
+
+    @GetMapping(value = "/pet/tableHorse")
+    public String petsTableHorseScreen(Model model, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        model.addAttribute("pets", petService.getHorses());
+        model.addAttribute("message", message);
+        model.addAttribute("messageError", messageError);
+
+        message = "";
+        messageError = "";
+
+        return "pet/tableHorse";
+    }
+
 }

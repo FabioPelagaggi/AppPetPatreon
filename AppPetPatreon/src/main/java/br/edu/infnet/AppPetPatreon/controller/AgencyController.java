@@ -1,5 +1,7 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +13,16 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import br.edu.infnet.AppPetPatreon.model.domain.Agency;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
 import br.edu.infnet.AppPetPatreon.service.AgencyService;
+import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Controller
 public class AgencyController {
 
     @Autowired
     private AgencyService agencyService;
+
+    @Autowired
+    private PatreonService PatreonService;
 
     String message = "";
     String messageError = "";
@@ -26,10 +32,42 @@ public class AgencyController {
         return "agency/register";
     }
 
+    @GetMapping(value = "/agency/updateAgency")
+    public String updateAgencyScreen(Model model) {
+        model.addAttribute("agencies", agencyService.getAgencies());
+
+        return "agency/updateAgency";
+    }
+
+    @PostMapping(value = "/agency/update")
+    public String update(int agencyId, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
+
+        Agency agency = agencyService.get(agencyId);
+        logedPatreon.setAgency(agency);
+
+        PatreonService.update(logedPatreon);
+
+        message = "Your Agency was updated to" + agency.getName() + ".";
+
+        return "redirect:/agency/table";
+    }
+
     @PostMapping(value = "/agency/add")
     public String add(Agency agency, @SessionAttribute("logedPatreon") Patreon logedPatreon) {
 
         agency.addPatreon(logedPatreon);
+
+        List<Agency> agenciesList = agencyService.getAgencies();
+        
+        for (Agency agencyList : agenciesList) {
+            if (agencyList.getName().equals(agency.getName())) {
+                messageError = "Agency " + agency.getName() + " already exists.";
+                return "redirect:/agency/table";
+            } else if (agencyList.getEmail().equals(agency.getEmail())) {
+                messageError = "Agency with e-mail " + agency.getEmail() + " already exists.";
+                return "redirect:/agency/table";
+            }
+        }
 
         agencyService.add(agency);
 

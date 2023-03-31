@@ -15,7 +15,7 @@ import br.edu.infnet.AppPetPatreon.constants.CONST;
 
 @Entity
 @Table(name = "agency_db")
-public class Agency {
+public class Agency implements Comparable<Agency> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,6 +69,10 @@ public class Agency {
         this.patreons = patreons;
     }
 
+    public int getPatreonsSize() {
+        return patreons.size();
+    }
+
     public List<Pet> getPets() {
         return pets;
     }
@@ -93,5 +97,10 @@ public class Agency {
         stringBuilder.append(";");
         stringBuilder.append(this.patreons);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public int compareTo(Agency arg0) {
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     };
 }

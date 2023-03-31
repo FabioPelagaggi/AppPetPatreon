@@ -32,6 +32,12 @@
             </div>
           </c:if>
 
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link align-self-right" href="/patreon/tableAll">All Patreons</a>
+            </li>
+          </ul>
+
           <form action="/" method="get">
 
             <div class="d-flex flex-column">
@@ -63,6 +69,7 @@
                         <th scope="col">Logradouro</th>
                         <th scope="col">UF</th>
                         <th scope="col">Donations</th>
+                        <th scope="col">Pets</th>
                         <c:if test="${logedPatreon.admin}">
                           <th scope="col">Delete</th>
                         </c:if>                   
@@ -82,6 +89,7 @@
                           <td>${patreon.address.logradouro}</td>
                           <td>${patreon.address.uf}</td>
                           <td>${patreon.donations.size()}</td>
+                          <td>${patreon.getDonationsPets().size()}</td>
                           <c:if test="${logedPatreon.admin}">
                             <c:if test="${patreon.name != logedPatreon.name}">
                               <td>
@@ -105,6 +113,8 @@
               </c:if>
 
               <button type="submit" class="align-self-center btn btn-primary m-3">Home</button>
+
+              <a type="button" class="align-self-center btn btn-info" href="/patreon/register">Register New Patreon</a>
 
             </div>
 

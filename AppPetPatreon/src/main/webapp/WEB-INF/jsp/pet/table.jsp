@@ -14,7 +14,7 @@
 
     <body>
       <c:import url="/WEB-INF/jsp/modal.jsp" />
-      
+
       <c:import url="/WEB-INF/jsp/navbar.jsp" />
 
       <div class="d-flex justify-content-center">
@@ -31,6 +31,31 @@
               <strong>Error!</strong> ${messageError}
             </div>
           </c:if>
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/pet/table">All Pets</a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pet/tableDog">Dogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pet/tableBird">Bird</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pet/tableHorse">Horse</a>
+            </li>
+          </ul>
+
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link align-self-right" href="/pet/tableAgency">Agency Pets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link align-self-right" href="/pet">Register New Pet</a>
+            </li>
+          </ul>
 
           <form action="/" method="get">
 
@@ -78,11 +103,18 @@
                           <td>${pet.calcMonthlyCost()}</td>
                           <td>${pet.donations.size()}</td>
                           <c:if test="${logedPatreon.admin}">
-                            <td>
-                              <a href="/pet/${pet.id}/remove">
-                                <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
-                              </a>
-                            </td>
+                            <c:if test="${logedPatreon.agency.name == pet.agency.name}">
+                              <td>
+                                <a href="/pet/${pet.id}/remove">
+                                  <i class="fa fa-trash-o ms-3" style="font-size:24px;color:red"></i>
+                                </a>
+                              </td>
+                            </c:if>
+                            <c:if test="${logedPatreon.agency.name != pet.agency.name}">
+                              <td>
+                                <i class="fa fa-trash-o ms-3" style="font-size:24px;color:gray"></i>
+                              </td>
+                            </c:if>
                           </c:if>
                         </tr>
                       </c:forEach>

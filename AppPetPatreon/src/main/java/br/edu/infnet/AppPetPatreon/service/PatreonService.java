@@ -31,6 +31,10 @@ public class PatreonService {
         return patreonRepository.save(patreon);
     }
 
+    public Patreon update(Patreon patreon) {
+        return patreonRepository.save(patreon);
+    }
+
     public Patreon validate(String email, String password) {
         return patreonRepository.validate(email, password);
     }
@@ -57,6 +61,8 @@ public class PatreonService {
                 patreonsAgency.add(patreon);
             }
         }
+
+        patreonsAgency.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
 
         return patreonsAgency;
     }

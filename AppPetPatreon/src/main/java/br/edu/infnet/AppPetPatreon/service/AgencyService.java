@@ -1,5 +1,6 @@
 package br.edu.infnet.AppPetPatreon.service;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,19 @@ public class AgencyService {
     }
 
     public List<Agency> getAgencies() {
-        return (List<Agency>) agencyRepository.findAll();
+        List<Agency> agencies = (List<Agency>) agencyRepository.findAll();
+
+        agencies.sort(Comparator.comparingInt(Agency::getPatreonsSize).reversed());
+        
+        return agencies;
+    }
+
+    public List<Agency> getAgenciesAlpha() {
+        List<Agency> agencies = (List<Agency>) agencyRepository.findAll();
+
+        agencies.sort((a1, a2) -> a1.getName().compareTo(a2.getName()));
+
+        return agencies;
     }
 
 }

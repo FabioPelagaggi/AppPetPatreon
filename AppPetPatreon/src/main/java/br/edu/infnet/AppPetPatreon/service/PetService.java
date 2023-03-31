@@ -51,4 +51,52 @@ public class PetService {
 
         return petsAgency;
     }
+
+    public List<Pet> getDogs() {
+
+        List<Pet> dogs = new ArrayList<Pet>();
+        List<Pet> pets = (List<Pet>) petRepository.findAll();
+
+        for (Pet pet : pets) {
+            if (pet.getAnimalType().equalsIgnoreCase("DOG")) {
+                dogs.add(pet);
+            }
+        }
+
+        dogs.sort(Comparator.comparingDouble(Pet::calcMonthlyCost).reversed());
+
+        return dogs;
+    }
+
+    public List<Pet> getBirds() {
+
+        List<Pet> birds = new ArrayList<Pet>();
+        List<Pet> pets = (List<Pet>) petRepository.findAll();
+
+        for (Pet pet : pets) {
+            if (pet.getAnimalType().equalsIgnoreCase("BIRD")) {
+                birds.add(pet);
+            }
+        }
+
+        birds.sort(Comparator.comparingDouble(Pet::calcMonthlyCost).reversed());
+
+        return birds;
+    }
+
+    public List<Pet> getHorses() {
+
+        List<Pet> horses = new ArrayList<Pet>();
+        List<Pet> pets = (List<Pet>) petRepository.findAll();
+
+        for (Pet pet : pets) {
+            if (pet.getAnimalType().equalsIgnoreCase("HORSE")) {
+                horses.add(pet);
+            }
+        }
+
+        horses.sort(Comparator.comparingDouble(Pet::calcMonthlyCost).reversed());
+
+        return horses;
+    }
 }

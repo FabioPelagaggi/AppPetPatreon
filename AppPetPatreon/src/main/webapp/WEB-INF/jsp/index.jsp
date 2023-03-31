@@ -25,18 +25,25 @@
         
         <div class="row">
 
-          <div class="col-sm-4">
-            <h2>About Me</h2>
-            <img height="120" width="" x="30" y="40" src="https://fabio.pelagaggi.com/assets/images/perfil.png"></image>
-            <h5 class="m-5">Fábio Rodrigues Pelagaggi Nunes</h5>
-            <ul class="nav nav-pills flex-column">
-              <li class="nav-item m-1">
-                <a class="nav-link active" href="https://fabio.pelagaggi.com/">Portifolio</a>
-              </li>
-              <li class="nav-item m-1">
-                <a class="nav-link active" href="https://github.com/FabioPelagaggi?tab=repositories">GitHub</a>
-              </li>
-            </ul>
+          <div class="col-sm-4 d-flex flex-column justify-content-center">
+            
+            <div class="align-self-center">
+              <h2>About Me</h2>
+              <img class="rounded-circle" height="120" width="" x="30" y="40" src="https://media.tenor.com/nyfBe4ukoDgAAAAM/hellinheavns.gif"></image>
+            </div>
+            
+            <div>
+              <h5 class="m-5">Fábio Rodrigues Pelagaggi Nunes</h5>
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item m-1">
+                  <a class="nav-link active" href="https://fabio.pelagaggi.com/">Portifolio</a>
+                </li>
+                <li class="nav-item m-1">
+                  <a class="nav-link active" href="https://github.com/FabioPelagaggi?tab=repositories">GitHub</a>
+                </li>
+              </ul>
+            </div>
+            
           </div>
 
           <div class="col-sm-8">

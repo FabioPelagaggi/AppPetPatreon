@@ -89,6 +89,8 @@
 
               <button type="submit" class="align-self-center btn btn-primary m-3">Home</button>
 
+              <a type="button" class="align-self-center btn btn-info" href="/donation/register">Register New Donation</a>
+
             </div>
 
           </form>

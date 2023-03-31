@@ -21,7 +21,7 @@ import br.edu.infnet.AppPetPatreon.model.exceptions.InvalidDonation;
 
 @Entity
 @Table(name = "donation_db")
-public class Donation {
+public class Donation implements Comparable<Donation> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -159,5 +159,10 @@ public class Donation {
                 this.donationAmount, this.dateTime.format(formatter), this.patreon, this.pets.toString());
 
         return stringData.toString();
+    }
+
+    @Override
+    public int compareTo(Donation arg0) {
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }
 }

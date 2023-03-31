@@ -18,7 +18,7 @@ import br.edu.infnet.AppPetPatreon.model.validation.Valid;
 
 @Entity
 @Table(name = "patreon_db")
-public class Patreon {
+public class Patreon implements Comparable<Patreon> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -129,6 +129,20 @@ public class Patreon {
         return donations;
     };
 
+    public List<Pet> getDonationsPets() {
+        List<Donation> donations = getDonations();
+        List<Pet> donationsPets = new ArrayList<>();
+
+        for (Donation donation : donations) {
+            List<Pet> pets = donation.getPets();
+            for (Pet pet : pets) {
+                donationsPets.add(pet);
+            }
+        }
+
+        return donationsPets;
+    };
+
     public void addDonation(Donation donation) {
         this.donations.add(donation);
     };
@@ -136,7 +150,7 @@ public class Patreon {
     public void setCep(String cep) {
         this.cep = cep;
     };
-    
+
     public String getCep() {
         return cep;
     };
@@ -147,8 +161,7 @@ public class Patreon {
 
     public Address getAddress() {
         return address;
-    };   
-
+    };
 
     public String getName() {
         StringBuilder fullName = new StringBuilder();
@@ -217,5 +230,10 @@ public class Patreon {
         stringBuilder.append(";");
         stringBuilder.append(this.cep);
         return stringBuilder.toString();
+    }
+
+    @Override
+    public int compareTo(Patreon arg0) {
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     };
 }
