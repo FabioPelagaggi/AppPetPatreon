@@ -31,7 +31,7 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label>Name:</label>
-                                <input type="text" name="name" value="Vlad Tepes Dracula" class="form-control">
+                                <input type="text" name="name" value="Zé tester" class="form-control">
                             </div>
 
                             <div class="form-group mb-3">
@@ -41,12 +41,12 @@
 
                             <div class="form-group mb-3">
                                 <label>E-mail:</label>
-                                <input type="email" name="email" value="bat18@gmail.com" class="form-control">
+                                <input type="email" name="email" value="ze@mane.com" class="form-control">
                             </div>
 
                             <div class="form-group mb-3">
                                 <label>Phone:</label>
-                                <input type="text" name="phone" value="65683156613" class="form-control">
+                                <input type="text" name="phone" value="0000000" class="form-control">
                             </div>
 
                             <div class="mb-3">
@@ -59,7 +59,7 @@
 
                             <div class="form-group mb-3">
                                 <label>CEP:</label>
-                                <input type="text" name="cep" value="88010400" class="form-control">
+                                <input type="text" name="cep" value="20541300" class="form-control">
                             </div>
 
                             <div class="mb-3">
@@ -73,10 +73,12 @@
                                 </c:if>
                             </div>
 
-                            <button ${buttonStatus} type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
+                            <button ${buttonStatus} type="submit"
+                                class="align-self-center btn btn-primary m-3">Comfirm</button>
 
                             <c:if test="${empty agencies}">
-                                <a type="button" class="align-self-center btn btn-info" href="/agency/registerFirst">Register New Agency</a>
+                                <a type="button" class="align-self-center btn btn-info"
+                                    href="/agency/registerFirst">Register New Agency</a>
                             </c:if>
 
                         </div>
