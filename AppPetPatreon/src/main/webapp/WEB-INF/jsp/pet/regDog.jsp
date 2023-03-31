@@ -23,7 +23,7 @@
 
               <div class="form-group mb-3 mt-3">
                 <label>Name:</label>
-                <input type="text" name="name" value="Ymir" class="form-control">
+                <input type="text" name="name" value="Magrelo" class="form-control">
               </div>
 
               <div class="mb-3 mt-3">

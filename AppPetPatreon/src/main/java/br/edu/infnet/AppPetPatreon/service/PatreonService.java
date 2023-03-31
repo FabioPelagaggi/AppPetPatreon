@@ -48,7 +48,9 @@ public class PatreonService {
     }
 
     public List<Patreon> getPatreons() {
-        return (List<Patreon>) patreonRepository.findAll();
+        List<Patreon> patreonsList = (List<Patreon>) patreonRepository.findAll();
+        patreonsList.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
+        return patreonsList;
     }
 
     public List<Patreon> getPatreons(Agency agency) {

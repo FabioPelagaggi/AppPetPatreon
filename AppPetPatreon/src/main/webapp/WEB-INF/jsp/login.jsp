@@ -29,7 +29,7 @@
 
               <div class="form-group mb-3">
                 <label>E-mail:</label>
-                <input type="email" name="email" value="bat18@gmail.com" class="form-control" />
+                <input type="email" name="email" value="lord@castle.com" class="form-control" />
               </div>
 
               <div class="form-group mb-3">

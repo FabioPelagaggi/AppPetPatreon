@@ -31,7 +31,7 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label>Name:</label>
-                                <input type="text" name="name" value="Zé tester" class="form-control">
+                                <input type="text" name="name" value="Simon Belmont" class="form-control">
                             </div>
 
                             <div class="form-group mb-3">
