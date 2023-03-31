@@ -76,7 +76,7 @@
                             <button ${buttonStatus} type="submit" class="align-self-center btn btn-primary m-3">Comfirm</button>
 
                             <c:if test="${empty agencies}">
-                                <a type="button" class="align-self-center btn btn-info" href="/agency/register">Register New Agency</a>
+                                <a type="button" class="align-self-center btn btn-info" href="/agency/registerFirst">Register New Agency</a>
                             </c:if>
 
                         </div>

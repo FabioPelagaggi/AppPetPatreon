@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.AppPetPatreon.model.domain.Donation;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 import br.edu.infnet.AppPetPatreon.repository.DonationRepository;
 
 @Service

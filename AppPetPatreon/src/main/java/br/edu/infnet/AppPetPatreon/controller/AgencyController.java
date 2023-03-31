@@ -32,6 +32,11 @@ public class AgencyController {
         return "agency/register";
     }
 
+    @GetMapping(value = "/agency/registerFirst")
+    public String registerFirstScreen() {
+        return "agency/registerFirst";
+    }
+
     @GetMapping(value = "/agency/updateAgency")
     public String updateAgencyScreen(Model model) {
         model.addAttribute("agencies", agencyService.getAgencies());
@@ -58,7 +63,7 @@ public class AgencyController {
         agency.addPatreon(logedPatreon);
 
         List<Agency> agenciesList = agencyService.getAgencies();
-        
+
         for (Agency agencyList : agenciesList) {
             if (agencyList.getName().equals(agency.getName())) {
                 messageError = "Agency " + agency.getName() + " already exists.";
@@ -76,6 +81,28 @@ public class AgencyController {
         message = "Agency " + agency.getName() + " was added.";
 
         return "redirect:/agency/table";
+    }
+
+    @PostMapping(value = "/agency/addFirst")
+    public String addFirst(Agency agency) {
+
+        List<Agency> agenciesList = agencyService.getAgencies();
+
+        for (Agency agencyList : agenciesList) {
+            if (agencyList.getName().equals(agency.getName())) {
+                messageError = "Agency " + agency.getName() + " already exists.";
+                return "redirect:/home";
+            } else if (agencyList.getEmail().equals(agency.getEmail())) {
+                messageError = "Agency with e-mail " + agency.getEmail() + " already exists.";
+                return "redirect:/home";
+            }
+        }
+
+        agencyService.add(agency);
+
+        message = "Agency " + agency.getName() + " was added.";
+
+        return "redirect:/patreon/register";
     }
 
     @GetMapping(value = "/agency/{id}/remove")

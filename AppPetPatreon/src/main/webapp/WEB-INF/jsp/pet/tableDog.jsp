@@ -52,9 +52,11 @@
             <li class="nav-item">
               <a class="nav-link align-self-right" href="/pet/tableAgency">Agency Pets</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link align-self-right" href="/pet">Register New Pet</a>
-            </li>
+            <c:if test="${logedPatreon.admin}">
+              <li class="nav-item">
+                <a class="nav-link align-self-right" href="/pet">Register New Pet</a>
+              </li>
+            </c:if>
           </ul>
 
 
@@ -127,7 +129,7 @@
               <button type="submit" class="align-self-center btn btn-primary mb-3">Home</button>
 
             </div>
-
+            
           </form>
         </div>
       </div>

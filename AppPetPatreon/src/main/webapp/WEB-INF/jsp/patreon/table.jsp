@@ -113,8 +113,10 @@
               </c:if>
 
               <button type="submit" class="align-self-center btn btn-primary m-3">Home</button>
-
-              <a type="button" class="align-self-center btn btn-info" href="/patreon/register">Register New Patreon</a>
+              
+              <c:if test="${logedPatreon.admin}">
+                <a type="button" class="align-self-center btn btn-info" href="/patreon/register">Register New Patreon</a>
+              </c:if>
 
             </div>
 

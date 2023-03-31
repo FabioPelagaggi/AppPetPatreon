@@ -1,8 +1,5 @@
 package br.edu.infnet.AppPetPatreon.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import br.edu.infnet.AppPetPatreon.model.domain.Donation;
 import br.edu.infnet.AppPetPatreon.model.domain.Patreon;
-import br.edu.infnet.AppPetPatreon.model.domain.Pet;
 import br.edu.infnet.AppPetPatreon.service.AgencyService;
-import br.edu.infnet.AppPetPatreon.service.DonationService;
 import br.edu.infnet.AppPetPatreon.service.PatreonService;
 
 @Controller
@@ -27,9 +21,6 @@ public class PatreonController {
 
     @Autowired
     private AgencyService agencyService;
-
-    @Autowired
-    private DonationService donationService;
 
     String message = "";
     String messageError = "";
